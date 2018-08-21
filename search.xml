@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[【C实现】给出一个字符串，要求将其按照单词顺序进行反转]]></title>
-    <url>%2F2018%2F08%2F21%2F%E3%80%90C%E5%AE%9E%E7%8E%B0%E3%80%91%E7%BB%99%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E8%A6%81%E6%B1%82%E5%B0%86%E5%85%B6%E6%8C%89%E7%85%A7%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F%E8%BF%9B%E8%A1%8C%E5%8F%8D%E8%BD%AC%2F</url>
-    <content type="text"><![CDATA[题目：给出一个字符串，要求将其按照单词顺序进行反转，比如如果是”the sky is blue”,那么反转之后的结果就是”blue is sky the”。问题分析： 每个单词长度不一致 空格需要特殊处理 使用C语言实现： 123456789101112131415161718192021222324252627282930313233343536373839404142434445void swap (char chars[], int p, int q);void reverse (char chars[], int start, int end);void reverseWords(char strings[]);int main(int argc, const char * argv[]) &#123;@autoreleasepool &#123;char string[] = &quot;the sky is blue&quot;;reverseWords(string);&#125;return 0;&#125;void swap (char chars[], int p, int q) &#123;char temp = chars[p];chars[p] = chars[q];chars[q] = temp;&#125;void reverse (char chars[], int start, int end) &#123;NSLog(@&quot;%s&quot;,chars);int s = start;int e = end;while (s &lt; e) &#123;swap(chars, s, e);s += 1;e -= 1;&#125;NSLog(@&quot;%s&quot;,chars);&#125;void reverseWords(char strings[]) &#123;if ((int)strlen(strings) == 0) &#123;return;&#125;int start = 0, len = (int)strlen(strings);reverse(strings, 0, len - 1);for (int i = 0 ; i &lt; len; i++) &#123;if ((i == len - 1) || (strings[i + 1] == &apos; &apos;)) &#123;reverse(strings, start, i);start = i + 2;&#125;&#125;NSLog(@&quot;%s&quot;,strings);&#125; 控制台打印：2018-08-14 16:04:22.815076+0800 算法[6268:668783] blue is sky the]]></content>
-      <categories>
-        <category>C</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[QLPreviewController]]></title>
     <url>%2F2018%2F05%2F14%2Fhello-world%2F</url>
     <content type="text"><![CDATA[QLPreviewController在iOS中用于方便预览文件，它支持的文件有： iWork文档 微软Office97以上版本的文档 RTF文档 PDF文件 图片文件 文本文件和CSV文件 使用的时候首先要引用#import &lt;QuickLook/QuickLook.h&gt;。初始化： 12345_qlPreviewController = [[ QLPreviewController alloc]init]; _qlPreviewController.dataSource = self; _qlPreviewController.delegate = self; [self presentViewController:_qlPreviewController animated:YES completion:nil]; QLPreviewController类似于Tableview的使用方法，也是首先遵循代理和数据源代理。然后实现代理方法，如下： 123456789-(NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller&#123; return 2;&#125;-(id&lt;QLPreviewItem&gt;)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index&#123; NSString *path = [[NSBundle mainBundle] pathForResource:@&quot;aa&quot; ofType:@&quot;doc&quot;]; NSURL *myDoucment = [NSURL fileURLWithPath:path]; return myDoucment;&#125;]]></content>
