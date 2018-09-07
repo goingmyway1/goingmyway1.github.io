@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="QLPreviewController在iOS中用于方便预览文件，它支持的文件有：  iWork文档 微软Office97以上版本的文档 RTF文档 PDF文件 图片文件 文本文件和CSV文件 使用的时候首先要引用#import &amp;lt;QuickLook/QuickLook.h&amp;gt;。初始化：   12345_qlPreviewController = [[ QLPreviewControll">
+<meta name="description" content="QLPreviewController在iOS中用于方便预览文件，它支持的文件有：  iWork文档 微软Office97以上版本的文档 RTF文档 PDF文件 图片文件 文本文件和CSV文件 使用的时候首先要引用#import &amp;lt;QuickLook/QuickLook.h&amp;gt;。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QLPreviewController">
 <meta property="og:url" content="http://yoursite.com/2018/05/14/hello-world/index.html">
 <meta property="og:site_name" content="不靠谱的程序猿">
-<meta property="og:description" content="QLPreviewController在iOS中用于方便预览文件，它支持的文件有：  iWork文档 微软Office97以上版本的文档 RTF文档 PDF文件 图片文件 文本文件和CSV文件 使用的时候首先要引用#import &amp;lt;QuickLook/QuickLook.h&amp;gt;。初始化：   12345_qlPreviewController = [[ QLPreviewControll">
+<meta property="og:description" content="QLPreviewController在iOS中用于方便预览文件，它支持的文件有：  iWork文档 微软Office97以上版本的文档 RTF文档 PDF文件 图片文件 文本文件和CSV文件 使用的时候首先要引用#import &amp;lt;QuickLook/QuickLook.h&amp;gt;。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-21T03:03:58.156Z">
+<meta property="og:updated_time" content="2018-09-07T06:14:07.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QLPreviewController">
-<meta name="twitter:description" content="QLPreviewController在iOS中用于方便预览文件，它支持的文件有：  iWork文档 微软Office97以上版本的文档 RTF文档 PDF文件 图片文件 文本文件和CSV文件 使用的时候首先要引用#import &amp;lt;QuickLook/QuickLook.h&amp;gt;。初始化：   12345_qlPreviewController = [[ QLPreviewControll">
+<meta name="twitter:description" content="QLPreviewController在iOS中用于方便预览文件，它支持的文件有：  iWork文档 微软Office97以上版本的文档 RTF文档 PDF文件 图片文件 文本文件和CSV文件 使用的时候首先要引用#import &amp;lt;QuickLook/QuickLook.h&amp;gt;。">
 
 
 
@@ -351,8 +351,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-21T11:03:58+08:00">
-                2018-08-21
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-07T14:14:07+08:00">
+                2018-09-07
               </time>
             
           </span>
@@ -426,7 +426,9 @@
 <li>PDF文件</li>
 <li>图片文件</li>
 <li><p>文本文件和CSV文件</p>
-<p>使用的时候首先要引用<code>#import &lt;QuickLook/QuickLook.h&gt;</code>。<br>初始化：</p>
+<p>使用的时候首先要引用<code>#import &lt;QuickLook/QuickLook.h&gt;</code>。</p>
+<a id="more"></a>
+<p>初始化：</p>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_qlPreviewController = [[ QLPreviewController alloc]init];</span><br><span class="line"> _qlPreviewController.dataSource = self;</span><br><span class="line"> _qlPreviewController.delegate = self;</span><br><span class="line"> </span><br><span class="line"> [self presentViewController:_qlPreviewController animated:YES completion:nil];</span><br></pre></td></tr></table></figure>

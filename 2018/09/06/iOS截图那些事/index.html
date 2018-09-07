@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="不靠谱的程序猿">
 <meta property="og:description" content="普通view截图12345678910+ (UIImage *)gjj_viewScreenShot:(UIView *)view &amp;#123;UIGraphicsBeginImageContextWithOptions(CGSizeMake(view.frame.size.width, view.frame.size.height ), NO, 0.0);[view.layer renderIn">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-06T06:06:05.308Z">
+<meta property="og:updated_time" content="2018-09-07T06:14:26.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS截图那些事">
 <meta name="twitter:description" content="普通view截图12345678910+ (UIImage *)gjj_viewScreenShot:(UIView *)view &amp;#123;UIGraphicsBeginImageContextWithOptions(CGSizeMake(view.frame.size.width, view.frame.size.height ), NO, 0.0);[view.layer renderIn">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-06T14:06:05+08:00">
-                2018-09-06
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-07T14:14:26+08:00">
+                2018-09-07
               </time>
             
           </span>
@@ -420,6 +420,7 @@
 
       
         <h2 id="普通view截图"><a href="#普通view截图" class="headerlink" title="普通view截图"></a>普通view截图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+ (UIImage *)gjj_viewScreenShot:(UIView *)view &#123;</span><br><span class="line">UIGraphicsBeginImageContextWithOptions(CGSizeMake(view.frame.size.width, view.frame.size.height ), NO, 0.0);</span><br><span class="line">[view.layer renderInContext:UIGraphicsGetCurrentContext()];</span><br><span class="line">/// 返回一个基于当前图形上下文的图片</span><br><span class="line">UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();</span><br><span class="line"></span><br><span class="line">/// 移除栈顶的基于当前位图的图形上下文</span><br><span class="line">UIGraphicsEndImageContext();</span><br><span class="line">return viewImage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="tableView、collectionView等scrollView生成长截图"><a href="#tableView、collectionView等scrollView生成长截图" class="headerlink" title="tableView、collectionView等scrollView生成长截图"></a>tableView、collectionView等scrollView生成长截图</h2><p>实现步骤</p>
 <ol>
 <li>保存scrollView截取前的偏移量及Frame</li>
