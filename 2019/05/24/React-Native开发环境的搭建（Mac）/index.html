@@ -88,19 +88,19 @@
 
 
 
-<meta name="description" content="安装依赖 先安装Homebrew（若已安装，可跳过）  1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  安装node和webpack  12brew install nodebrew install webpack 测试nod">
+<meta name="description" content="安装依赖 先安装Homebrew（若已安装，可跳过）  1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  安装node和webpack  123brew install nodebrew install webpack 测试no">
 <meta name="keywords" content="React Native">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native开发环境的搭建（Mac）">
 <meta property="og:url" content="http://yoursite.com/2019/05/24/React-Native开发环境的搭建（Mac）/index.html">
 <meta property="og:site_name" content="不靠谱的程序猿">
-<meta property="og:description" content="安装依赖 先安装Homebrew（若已安装，可跳过）  1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  安装node和webpack  12brew install nodebrew install webpack 测试nod">
+<meta property="og:description" content="安装依赖 先安装Homebrew（若已安装，可跳过）  1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  安装node和webpack  123brew install nodebrew install webpack 测试no">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/05/24/React-Native开发环境的搭建（Mac）/皮卡丘.gif">
-<meta property="og:updated_time" content="2019-05-24T09:19:24.305Z">
+<meta property="og:updated_time" content="2019-05-24T09:30:05.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native开发环境的搭建（Mac）">
-<meta name="twitter:description" content="安装依赖 先安装Homebrew（若已安装，可跳过）  1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  安装node和webpack  12brew install nodebrew install webpack 测试nod">
+<meta name="twitter:description" content="安装依赖 先安装Homebrew（若已安装，可跳过）  1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  安装node和webpack  123brew install nodebrew install webpack 测试no">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/24/React-Native开发环境的搭建（Mac）/皮卡丘.gif">
 
 
@@ -363,7 +363,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-24T17:19:24+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-24T17:30:05+08:00">
                 2019-05-24
               </time>
             
@@ -437,20 +437,21 @@
 <ol start="2">
 <li>安装node和webpack</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br><span class="line">brew install webpack</span><br></pre></td></tr></table></figure>
-<p>测试node和webpack是否安装成功，可用如下命令进行检测。若本地安装，则会显示对应版本号。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">webpack -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br><span class="line"></span><br><span class="line">brew install webpack</span><br></pre></td></tr></table></figure>
+<pre><code>测试node和webpack是否安装成功，可用如下命令进行检测。若本地安装，则会显示对应版本号。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">  </span><br><span class="line">webpack -v</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ol start="3">
-<li>设置国内镜像（常年开vpn的可以忽略）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure>
+<li><p>设置国内镜像（常年开vpn的可以忽略）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure>
+<p> 这里出错了，按提示走就可以，复制sudo那一行更改目录权限，再设置国内镜像。</p>
+</li>
+<li><p>安装RN：直接输入<code>npm install -g react-native-cli</code>。会因为权限不够而报错：npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules。所以我们直接输入下面两句话</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $(whoami) /usr/local/*</span><br><span class="line"></span><br><span class="line">npm install -g yarn react-native-cli</span><br></pre></td></tr></table></figure>
+<p>测试是否安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native -v</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>这里出错了，按提示走就可以，复制sudo那一行更改目录权限，再设置国内镜像。</p>
-<ol start="4">
-<li>安装RN：直接输入<code>npm install -g react-native-cli</code>。会因为权限不够而报错：npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules。所以我们直接输入下面两句话<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $(whoami) /usr/local/*</span><br><span class="line"></span><br><span class="line">npm install -g yarn react-native-cli</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>测试是否安装成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native -v</span><br></pre></td></tr></table></figure></p>
 <h2 id="创建RN项目到本地"><a href="#创建RN项目到本地" class="headerlink" title="创建RN项目到本地"></a>创建RN项目到本地</h2><ol>
 <li><p>创建RN项目</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init AwesomeProject</span><br></pre></td></tr></table></figure>
@@ -464,9 +465,10 @@
 <p>提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。第一次运行会比较慢，需要耐心等待一下</p>
 </blockquote>
 <ol start="3">
-<li>修改项目</li>
+<li><p>修改项目</p>
+<p> 现在你已经成功运行了项目，我们可以开始尝试动手改一改了：</p>
+</li>
 </ol>
-<p>现在你已经成功运行了项目，我们可以开始尝试动手改一改了：</p>
 <ul>
 <li>使用你喜欢的编辑器打开App.js并随便改上几行。 </li>
 <li>在 iOS 模拟器中按下<em>⌘-R</em>就可以刷新 APP并看到你的最新修改！（如果没有反应，请检查模拟器的 Hardware 菜单中，connect hardware keyboard    选项是否选中开启）</li>
