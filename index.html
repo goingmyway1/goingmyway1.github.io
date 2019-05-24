@@ -315,6 +315,220 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/React-Native开发环境的搭建（Mac）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sheffi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不靠谱的程序猿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/24/React-Native开发环境的搭建（Mac）/" itemprop="url">React Native开发环境的搭建（Mac）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T14:38:30+08:00">
+                2019-05-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-24T17:10:16+08:00">
+                2019-05-24
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React-Native/" itemprop="url" rel="index">
+                    <span itemprop="name">React Native</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/24/React-Native开发环境的搭建（Mac）/" class="leancloud_visitors" data-flag-title="React Native开发环境的搭建（Mac）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>**</p>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>**</p>
+<ol>
+<li>先安装Homebrew（若已安装，可跳过）</li>
+</ol>
+<p>/usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a></p>
+<ol start="2">
+<li>安装node和webpack</li>
+</ol>
+<p>brew install node<br>brew install webpack</p>
+<p>测试node和webpack是否安装成功，可用如下命令进行检测。若本地安装，则会显示对应版本号。</p>
+<p>node -v<br>webpack -v</p>
+<ol start="3">
+<li>设置国内镜像（常年开vpn的可以忽略）</li>
+</ol>
+<p>npm config set disturl <a href="https://npm.taobao.org/dist" target="_blank" rel="noopener">https://npm.taobao.org/dist</a> –global</p>
+<p>这里出错了，按提示走就可以，复制sudo那一行更改目录权限，再设置国内镜像。</p>
+<ol start="4">
+<li>安装RN：直接输入<code>npm install -g react-native-cli</code>。会因为权限不够而报错：npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules。所以我们直接输入下面两句话</li>
+</ol>
+<p>sudo chown -R $(whoami) /usr/local/*</p>
+<p>npm install -g yarn react-native-cli</p>
+<p>测试是否安装成功：</p>
+<p>react-native -v</p>
+<p>**</p>
+<h2 id="创建RN项目到本地"><a href="#创建RN项目到本地" class="headerlink" title="创建RN项目到本地"></a>创建RN项目到本地</h2><p>**</p>
+<ol>
+<li>创建RN项目</li>
+</ol>
+<p>react-native init AwesomeProject</p>
+<ol start="2">
+<li>编译并运行 React Native 应用</li>
+</ol>
+<p>cd AwesomeProject<br>react-native run-ios</p>
+
+<blockquote>
+<p>提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。第一次运行会比较慢，需要耐心等待一下</p>
+</blockquote>
+<ol start="3">
+<li>修改项目</li>
+</ol>
+<p>现在你已经成功运行了项目，我们可以开始尝试动手改一改了：</p>
+<ul>
+<li>使用你喜欢的编辑器打开App.js并随便改上几行。 </li>
+<li>在 iOS 模拟器中按下<em>⌘-R</em>就可以刷新 APP并看到你的最新修改！（如果没有反应，请检查模拟器的 Hardware 菜单中，connect hardware keyboard    选项是否选中开启）</li>
+</ul>
+<img src="/2019/05/24/React-Native开发环境的搭建（Mac）/皮卡丘.gif" title="This is an example image">
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  <div>
+    
+ </div>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/06/iOS截图那些事/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -880,7 +1094,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -891,7 +1105,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -902,7 +1116,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1007,7 +1221,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共882字</span>
+  <span class="post-count">博客全站共1.3k字</span>
 </div>
 
 
