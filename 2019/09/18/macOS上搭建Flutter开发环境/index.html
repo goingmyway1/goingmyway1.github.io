@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/18/macOS上搭建Flutter开发环境/截图3.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/18/macOS上搭建Flutter开发环境/截图4.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/18/macOS上搭建Flutter开发环境/截图5.png">
-<meta property="og:updated_time" content="2019-09-18T06:20:06.367Z">
+<meta property="og:updated_time" content="2019-09-18T06:25:54.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="macOS上搭建Flutter开发环境">
 <meta name="twitter:description" content="系统要求要安装并运行Flutter，您的开发环境必须满足以下最低要求:  操作系统: macOS (64-bit) 磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）. 工具: Flutter 依赖下面这些命令行工具. bash、mkdir、rm、git、curl、unzip、which">
@@ -367,7 +367,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-18T14:20:06+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-18T14:25:54+08:00">
                 2019-09-18
               </time>
             
@@ -440,9 +440,9 @@
 <li>磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）.</li>
 <li>工具: Flutter 依赖下面这些命令行工具.</li>
 <li>bash、mkdir、rm、git、curl、unzip、which<a id="more"></a>
-<h2 id="获取Flutter-SDK"><a href="#获取Flutter-SDK" class="headerlink" title="获取Flutter SDK"></a>获取Flutter SDK</h2></li>
+</li>
 </ul>
-<ol>
+<h2 id="获取Flutter-SDK"><a href="#获取Flutter-SDK" class="headerlink" title="获取Flutter SDK"></a>获取Flutter SDK</h2><ol>
 <li><p>去flutter官网下载其最新可用的安装包，官网地址：<a href="https://flutter.io/sdk-archive/#macos" target="_blank" rel="noopener">https://flutter.io/sdk-archive/#macos</a>。<br>注意，Flutter的渠道版本会不停变动，请以Flutter官网为准。另外，在中国大陆地区，要想正常获取安装包列表或下载安装包，可能需要翻墙，可以去Flutter github项目下去下载安装包，地址：<a href="https://github.com/flutter/flutter/releases" target="_blank" rel="noopener">https://github.com/flutter/flutter/releases</a> 。</p>
 </li>
 <li><p>解压安装包到你想安装的目录<br>直接解压放到你想安装的目录就可以。或者使用命令行：</p>
@@ -454,17 +454,17 @@
 </ol>
 <p>然后在终端添加以下三行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn # 国内用户需要设置</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn # 国内用户需要设置</span><br><span class="line">export PATH=/Users/sheffi/flutter/bin:$PATH</span><br></pre></td></tr></table></figure>
-<p>!<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图1.png" title="截图1"></p>
+<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图1.png" title="截图1">
 <p>配置完成后，需要用source命令重新加载一下 ，具体命令如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
 <p>完成这些步骤后，可以使用命令进行检测一下，是否安装成功。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter -h</span><br></pre></td></tr></table></figure>
-<p>如图，说明一切安装顺利<br>!<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图2.png" title="截图2"></p>
+<p>如图，说明一切安装顺利<br><img src="/2019/09/18/macOS上搭建Flutter开发环境/截图2.png" title="截图2"></p>
 <ol start="4">
 <li>检查开发环境<br>到这我们已经安装好了flutter，但是还不具备开发环境。开发还需要很多软件和插件的支持，那到底需要哪些插件和软件那？我们可以使用Flutter为我们提供的命令来进行检查：</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor</span><br></pre></td></tr></table></figure>
-<p>因为我所有的东西都安装完，显示如下<br>!<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图3.png" title="截图3"><br>第一次安装根据终端的提示进行安装相应的软件和插件。</p>
+<p>因为我所有的东西都安装完，显示如下<br><img src="/2019/09/18/macOS上搭建Flutter开发环境/截图3.png" title="截图3"><br>第一次安装根据终端的提示进行安装相应的软件和插件。</p>
 <p><strong>安装 Xcode</strong></p>
 <p> 要为iOS开发Flutter应用程序，您需要Xcode 9.0或更高版本:</p>
 <ul>
@@ -498,10 +498,11 @@
 </ul>
 <p>d. 运行应用程序</p>
 <ul>
-<li>定位到Android Studio工具栏<br>!<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图4.png" title="截图4"></li>
+<li>定位到Android Studio工具栏<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图4.png" title="截图4"></li>
 <li>在 target selector 中, 选择一个运行该应用的Android设备。如果没有列出可用，请选择 Tools&gt;AVD Manager 并在那里创建一个。</li>
 <li>在工具栏中点击 Run图标</li>
-<li>如果一切正常, 您应该在您的设备或模拟器上会看到启动的应用程序：<br>!<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图5.png" title="截图5"></li>
+<li>如果一切正常, 您应该在您的设备或模拟器上会看到启动的应用程序：<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图5.png" title="截图5">
+</li>
 </ul>
 <p><strong>VS Code的配置与使用</strong><br>VS Code是一个轻量级编辑器，支持Flutter运行和调试。</p>
 <p>a. 安装flutter插件</p>
