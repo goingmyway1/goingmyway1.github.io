@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/18/macOS上搭建Flutter开发环境/截图3.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/18/macOS上搭建Flutter开发环境/截图4.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/18/macOS上搭建Flutter开发环境/截图5.png">
-<meta property="og:updated_time" content="2019-09-18T06:31:08.072Z">
+<meta property="og:updated_time" content="2019-09-18T06:36:00.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="macOS上搭建Flutter开发环境">
 <meta name="twitter:description" content="系统要求要安装并运行Flutter，您的开发环境必须满足以下最低要求:  操作系统: macOS (64-bit) 磁盘空间: 700 MB (不包括Xcode或Android Studio的磁盘空间）. 工具: Flutter 依赖下面这些命令行工具. bash、mkdir、rm、git、curl、unzip、which">
@@ -367,7 +367,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-18T14:31:08+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-18T14:36:00+08:00">
                 2019-09-18
               </time>
             
@@ -448,20 +448,40 @@
 <li><p>解压安装包到你想安装的目录<br>直接解压放到你想安装的目录就可以。或者使用命令行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/development</span><br><span class="line">unzip ~/Downloads/flutter_macos_v0.5.1-beta.zip</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>配置环境变量<br>打开终端工具，使用vim进行配置环境变量，命令如下：</p>
+<li><p>配置环境变量</p>
+</li>
+</ol>
+<ul>
+<li><p>打开终端工具，使用vim进行配置环境变量，命令如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>然后在终端添加以下三行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn # 国内用户需要设置</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn # 国内用户需要设置</span><br><span class="line">export PATH=/Users/sheffi/flutter/bin:$PATH</span><br></pre></td></tr></table></figure></p>
-<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图1.png" title="截图1">
-<p>配置完成后，需要用source命令重新加载一下 ，具体命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
-<p>完成这些步骤后，可以使用命令进行检测一下，是否安装成功。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter -h</span><br></pre></td></tr></table></figure></p>
-<p>如图，说明一切安装顺利<br><img src="/2019/09/18/macOS上搭建Flutter开发环境/截图2.png" title="截图2"></p>
-<ol start="4">
-<li>检查开发环境<br>到这我们已经安装好了flutter，但是还不具备开发环境。开发还需要很多软件和插件的支持，那到底需要哪些插件和软件那？我们可以使用Flutter为我们提供的命令来进行检查：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor</span><br></pre></td></tr></table></figure>
+<li><p>然后在终端添加以下三行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn # 国内用户需要设置</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn # 国内用户需要设置</span><br><span class="line">export PATH=/Users/sheffi/flutter/bin:$PATH</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图1.png" title="截图1">
+<ul>
+<li><p>配置完成后，需要用source命令重新加载一下 ，具体命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完成这些步骤后，可以使用命令进行检测一下，是否安装成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter -h</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如图，说明一切安装顺利</p>
+<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图2.png" title="截图2">
+</li>
+</ul>
+<ol start="4">
+<li>检查开发环境</li>
 </ol>
-<p>因为我所有的东西都安装完，显示如下<br><img src="/2019/09/18/macOS上搭建Flutter开发环境/截图3.png" title="截图3"><br>第一次安装根据终端的提示进行安装相应的软件和插件。</p>
+<ul>
+<li><p>到这我们已经安装好了flutter，但是还不具备开发环境。开发还需要很多软件和插件的支持，那到底需要哪些插件和软件那？我们可以使用Flutter为我们提供的命令来进行检查：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>因为我所有的东西都安装完，显示如下</p>
+<img src="/2019/09/18/macOS上搭建Flutter开发环境/截图3.png" title="截图3"></li>
+<li>第一次安装根据终端的提示进行安装相应的软件和插件。</li>
+</ul>
 <h2 id="安装-Xcode"><a href="#安装-Xcode" class="headerlink" title="安装 Xcode"></a>安装 Xcode</h2><p> 要为iOS开发Flutter应用程序，您需要Xcode 9.0或更高版本:</p>
 <ul>
 <li>安装Xcode 9.0或更新版本(通过链接下载或苹果应用商店).</li>
