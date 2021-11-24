@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-11-24T08:35:52.424Z</updated>
+  <updated>2021-11-24T08:43:58.348Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决webview全屏播放视频</title>
+    <link href="http://yoursite.com/2021/11/24/%E8%A7%A3%E5%86%B3webview%E5%85%A8%E5%B1%8F%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/"/>
+    <id>http://yoursite.com/2021/11/24/解决webview全屏播放视频/</id>
+    <published>2021-11-24T08:41:18.000Z</published>
+    <updated>2021-11-24T08:43:58.348Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题背景：webview使用内部播放器播放视频，不是有iPhone默认播放器播放<br>allowsInlineMediaPlayback指示HTML5视频是否内联播放(YES)或使用本机全屏控制器(NO)。默认值为NO。</p><a id="more"></a><p><code>WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];</code><br><code>config.allowsInlineMediaPlayback = YES;</code><br><code>_webView= [[DWKWebView alloc] initWithFrame:CGRectZero configuration:config];</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;问题背景：webview使用内部播放器播放视频，不是有iPhone默认播放器播放&lt;br&gt;allowsInlineMediaPlayback指示HTML5视频是否内联播放(YES)或使用本机全屏控制器(NO)。默认值为NO。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="C" scheme="http://yoursite.com/categories/C/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>常用hexo命令</title>

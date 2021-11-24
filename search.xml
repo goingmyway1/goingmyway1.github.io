@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[解决webview全屏播放视频]]></title>
+    <url>%2F2021%2F11%2F24%2F%E8%A7%A3%E5%86%B3webview%E5%85%A8%E5%B1%8F%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%2F</url>
+    <content type="text"><![CDATA[问题背景：webview使用内部播放器播放视频，不是有iPhone默认播放器播放allowsInlineMediaPlayback指示HTML5视频是否内联播放(YES)或使用本机全屏控制器(NO)。默认值为NO。 WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];config.allowsInlineMediaPlayback = YES;_webView= [[DWKWebView alloc] initWithFrame:CGRectZero configuration:config];]]></content>
+      <categories>
+        <category>C</category>
+      </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[常用hexo命令]]></title>
     <url>%2F2021%2F11%2F24%2F%E5%B8%B8%E7%94%A8hexo%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[常见命令 hexo new &quot;postName&quot; #新建文章hexo new page &quot;pageName&quot; #新建页面hexo generate #生成静态页面至public目录hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）hexo deploy #部署到GitHubhexo help # 查看帮助hexo version #查看Hexo的版本 缩写： hexo n == hexo newhexo g == hexo generatehexo s == hexo serverhexo d == hexo deploy 组合命令： hexo s -g #生成并本地预览hexo d -g #生成并上传]]></content>
