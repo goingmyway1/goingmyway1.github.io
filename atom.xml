@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-18T06:36:00.447Z</updated>
+  <updated>2021-11-24T08:24:02.544Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xcode 13新建项目Products目录显示方法</title>
+    <link href="http://yoursite.com/2021/11/24/Xcode-13%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AEProducts%E7%9B%AE%E5%BD%95%E6%98%BE%E7%A4%BA%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2021/11/24/Xcode-13新建项目Products目录显示方法/</id>
+    <published>2021-11-24T05:36:37.000Z</published>
+    <updated>2021-11-24T08:24:02.544Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先打开项目，进入到项目目录找到xxx.xcodeproj文件显示包内容，找到project.pbxproj打开，搜索productRefGroup，</p><p>搜索结果可能有多个，每个项目的键值不一样具体看自己的<br>注意看<code>productRefGroup</code>的注释 为<code>/* Products */</code> 才是我们要修改的</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mainGroup = 2010E124274DE36A00A796DF;</span><br><span class="line">productRefGroup = 2010E12F274DE36A00A796DF /* Products */;</span><br></pre></td></tr></table></figure><p>将上面 <code>mainGroup</code> 对应的值复制给 <code>productRefGroup</code> 的值 如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mainGroup = 2010E124274DE36A00A796DF;</span><br><span class="line">productRefGroup = 2010E124274DE36A00A796DF /* Products */;</span><br></pre></td></tr></table></figure><p>最后按 <code>command+s</code> 保存 <code>project.pbxproj</code> 文件,Xcode将自动刷新<br>这时候你想见的 <code>Products</code> 目录就出现了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先打开项目，进入到项目目录找到xxx.xcodeproj文件显示包内容，找到project.pbxproj打开，搜索productRefGroup，&lt;/p&gt;
+&lt;p&gt;搜索结果可能有多个，每个项目的键值不一样具体看自己的&lt;br&gt;注意看&lt;code&gt;productRefGroup&lt;/code&gt;的注释 为&lt;code&gt;/* Products */&lt;/code&gt; 才是我们要修改的&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>macOS上搭建Flutter开发环境</title>
