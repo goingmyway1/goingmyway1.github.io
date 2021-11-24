@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[常用hexo命令]]></title>
+    <url>%2F2021%2F11%2F24%2F%E5%B8%B8%E7%94%A8hexo%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[常见命令 hexo new &quot;postName&quot; #新建文章hexo new page &quot;pageName&quot; #新建页面hexo generate #生成静态页面至public目录hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）hexo deploy #部署到GitHubhexo help # 查看帮助hexo version #查看Hexo的版本 缩写： hexo n == hexo newhexo g == hexo generatehexo s == hexo serverhexo d == hexo deploy 组合命令： hexo s -g #生成并本地预览hexo d -g #生成并上传]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Xcode 13新建项目Products目录显示方法]]></title>
     <url>%2F2021%2F11%2F24%2FXcode-13%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AEProducts%E7%9B%AE%E5%BD%95%E6%98%BE%E7%A4%BA%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[首先打开项目，进入到项目目录找到xxx.xcodeproj文件显示包内容，找到project.pbxproj打开，搜索productRefGroup， 搜索结果可能有多个，每个项目的键值不一样具体看自己的注意看productRefGroup的注释 为/* Products */ 才是我们要修改的 12mainGroup = 2010E124274DE36A00A796DF;productRefGroup = 2010E12F274DE36A00A796DF /* Products */; 将上面 mainGroup 对应的值复制给 productRefGroup 的值 如下： 12mainGroup = 2010E124274DE36A00A796DF;productRefGroup = 2010E124274DE36A00A796DF /* Products */; 最后按 command+s 保存 project.pbxproj 文件,Xcode将自动刷新这时候你想见的 Products 目录就出现了。]]></content>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-11-24T08:24:02.544Z</updated>
+  <updated>2021-11-24T08:35:52.424Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用hexo命令</title>
+    <link href="http://yoursite.com/2021/11/24/%E5%B8%B8%E7%94%A8hexo%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2021/11/24/常用hexo命令/</id>
+    <published>2021-11-24T08:28:10.000Z</published>
+    <updated>2021-11-24T08:35:52.424Z</updated>
+    
+    <content type="html"><![CDATA[<p>常见命令</p><a id="more"></a><p><code>hexo new &quot;postName&quot; #新建文章</code><br><code>hexo new page &quot;pageName&quot; #新建页面</code><br><code>hexo generate #生成静态页面至public目录</code><br><code>hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）</code><br><code>hexo deploy #部署到GitHub</code><br><code>hexo help  # 查看帮助</code><br><code>hexo version  #查看Hexo的版本</code></p><p>缩写：</p><p><code>hexo n == hexo new</code><br><code>hexo g == hexo generate</code><br><code>hexo s == hexo server</code><br><code>hexo d == hexo deploy</code></p><p>组合命令：</p><p><code>hexo s -g #生成并本地预览</code><br><code>hexo d -g #生成并上传</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;常见命令&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Xcode 13新建项目Products目录显示方法</title>
