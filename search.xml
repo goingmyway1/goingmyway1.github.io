@@ -16,7 +16,7 @@
     <url>%2F2021%2F11%2F24%2F%E8%A7%A3%E5%86%B3webview%E5%85%A8%E5%B1%8F%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%2F</url>
     <content type="text"><![CDATA[问题背景：webview使用内部播放器播放视频，不是有iPhone默认播放器播放allowsInlineMediaPlayback指示HTML5视频是否内联播放(YES)或使用本机全屏控制器(NO)。默认值为NO。 WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];config.allowsInlineMediaPlayback = YES;_webView= [[DWKWebView alloc] initWithFrame:CGRectZero configuration:config];]]></content>
       <categories>
-        <category>C</category>
+        <category>iOS</category>
       </categories>
       <tags>
         <tag>iOS</tag>
