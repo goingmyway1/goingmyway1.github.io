@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="不靠谱的程序猿">
 <meta property="og:description" content="NavigationBar 颜色及背景失效iOS 15上发现，指定的背景色失效了，但滚动控制器的视图时，导航条的背景又出现了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-01-15T03:11:43.060Z">
+<meta property="og:updated_time" content="2022-01-15T03:22:46.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 15 适配手册">
 <meta name="twitter:description" content="NavigationBar 颜色及背景失效iOS 15上发现，指定的背景色失效了，但滚动控制器的视图时，导航条的背景又出现了。">
@@ -361,7 +361,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-01-15T11:11:43+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2022-01-15T11:22:46+08:00">
                 2022-01-15
               </time>
             
@@ -430,8 +430,12 @@
       
         <h2 id="NavigationBar-颜色及背景失效"><a href="#NavigationBar-颜色及背景失效" class="headerlink" title="NavigationBar 颜色及背景失效"></a>NavigationBar 颜色及背景失效</h2><p>iOS 15上发现，指定的背景色失效了，但滚动控制器的视图时，导航条的背景又出现了。 </p>
 <a id="more"></a>
+<blockquote>
 <p>As of iOS 15, UINavigationBar, UIToolbar, and UITabBar will use their scrollEdgeAppearance when your view controller’s associated scroll view is at the appropriate edge (or always if you don’t have a UIScrollView in your hierarchy, more on that below).<br>从 iOS 15 开始，UINavigationBar、UIToolbar 和 UITabBar 将在您的视图控制器的关联滚动视图位于适当的边缘时使用它们的 scrollEdgeAppearance（或者总是如果您的层次结构中没有 UIScrollView，更多内容见下文）。</p>
+</blockquote>
+<blockquote>
 <p>You must adopt the UIBarAppearance APIs (available since iOS 13, specializations for each bar type) to customize this behavior. UIToolbar and UITabBar add scrollEdgeAppearance properties for this purpose in iOS 15.<br>您必须采用 UIBarAppearance API（自 iOS 13 起可用，针对每种条形类型进行了专门化）来自定义此行为。 UIToolbar 和 UITabBar 为此在 iOS 15 中添加了 scrollEdgeAppearance 属性。</p>
+</blockquote>
 <p>相关修改如下：</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (@available(iOS <span class="number">13.0</span>, *)) &#123;</span><br><span class="line">        <span class="built_in">UINavigationBarAppearance</span> *appearance = [[<span class="keyword">self</span>.navigationBar standardAppearance] <span class="keyword">copy</span>];;</span><br><span class="line">        appearance.backgroundImage = [<span class="keyword">self</span> imageFromLayer:gradientLayer];</span><br><span class="line">        appearance.titleTextAttributes = @&#123;<span class="built_in">NSFontAttributeName</span>: [GDDConfig sharedInstance].defaultConfig.navTitleFont, <span class="built_in">NSForegroundColorAttributeName</span>: [GDDConfig sharedInstance].defaultConfig.navTitleColor&#125;;</span><br><span class="line">        <span class="keyword">self</span>.navigationBar.standardAppearance = appearance;</span><br><span class="line">        <span class="comment">/// 根据苹果的注释，如果scrollEdgeAppearance为nil，会默认使用standardAppearance啊。但在 iOS 15 中，必须同时指定standardAppearance和scrollEdgeAppearance才可以。</span></span><br><span class="line">        <span class="keyword">self</span>.navigationBar.scrollEdgeAppearance = appearance;</span><br><span class="line">        <span class="keyword">self</span>.navigationBar.tintColor = [GDDConfig sharedInstance].defaultConfig.navTitleColor;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.navigationBar.tintColor = [GDDConfig sharedInstance].defaultConfig.navTitleColor;</span><br><span class="line">        <span class="keyword">self</span>.navigationBar.titleTextAttributes = @&#123;<span class="built_in">NSFontAttributeName</span>: [GDDConfig sharedInstance].defaultConfig.navTitleFont, <span class="built_in">NSForegroundColorAttributeName</span>: [GDDConfig sharedInstance].defaultConfig.navTitleColor&#125;;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span>.navigationBar setBackgroundImage:[<span class="keyword">self</span> imageFromLayer:gradientLayer] forBarMetrics:<span class="built_in">UIBarMetricsDefault</span>];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="UITabBar-背景图失效"><a href="#UITabBar-背景图失效" class="headerlink" title="UITabBar 背景图失效"></a>UITabBar 背景图失效</h2><p>UITabBar之前设置的背景图片，老版本可以，iOS 15上表现为空白。</p>
