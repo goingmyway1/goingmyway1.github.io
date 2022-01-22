@@ -88,20 +88,20 @@
 
 
 
-<meta name="description" content="OC的方法与消息 方法：与一个类相关的一段实际代码，并给出一个特定的名字。  消息：发送给对象的名称和一组参数。示例：向0x12345678对象发送meaning并且没有参数。">
+<meta name="description" content="OC的方法与消息">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 消息转发篇(Message Forwarding) (消息机制)">
 <meta property="og:url" content="http://yoursite.com/2022/01/22/iOS-消息转发篇-Message-Forwarding-消息机制/index.html">
 <meta property="og:site_name" content="不靠谱的程序猿">
-<meta property="og:description" content="OC的方法与消息 方法：与一个类相关的一段实际代码，并给出一个特定的名字。  消息：发送给对象的名称和一组参数。示例：向0x12345678对象发送meaning并且没有参数。">
+<meta property="og:description" content="OC的方法与消息">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2022/01/22/iOS-消息转发篇-Message-Forwarding-消息机制/1.png">
 <meta property="og:image" content="http://yoursite.com/2022/01/22/iOS-消息转发篇-Message-Forwarding-消息机制/2.png">
-<meta property="og:updated_time" content="2022-01-22T07:53:54.902Z">
+<meta property="og:updated_time" content="2022-01-22T07:59:03.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 消息转发篇(Message Forwarding) (消息机制)">
-<meta name="twitter:description" content="OC的方法与消息 方法：与一个类相关的一段实际代码，并给出一个特定的名字。  消息：发送给对象的名称和一组参数。示例：向0x12345678对象发送meaning并且没有参数。">
+<meta name="twitter:description" content="OC的方法与消息">
 <meta name="twitter:image" content="http://yoursite.com/2022/01/22/iOS-消息转发篇-Message-Forwarding-消息机制/1.png">
 
 
@@ -364,7 +364,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-01-22T15:53:54+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2022-01-22T15:59:03+08:00">
                 2022-01-22
               </time>
             
@@ -431,14 +431,11 @@
       
 
       
-        <h2 id="OC的方法与消息"><a href="#OC的方法与消息" class="headerlink" title="OC的方法与消息"></a>OC的方法与消息</h2><ul>
-<li><p><strong>方法</strong>：与一个类相关的一段实际代码，并给出一个特定的名字。</p>
-</li>
-<li><p><strong>消息</strong>：发送给对象的名称和一组参数。示例：向0x12345678对象发送meaning并且没有参数。</p>
-<a id="more"></a>
-</li>
-<li><p><strong>选择器</strong>：表示消息或方法名称的一种特殊方式，表示为类型SEL。选择器本质上就是不透明的字符串，它们被管理，因此可以使用简单的指针相等来比较它们，从而提高速度。（实现可能会有所不同，但这基本上是他们在外部看起来的样子。）例如：@selector(meaning)。</p>
-</li>
+        <h2 id="OC的方法与消息"><a href="#OC的方法与消息" class="headerlink" title="OC的方法与消息"></a>OC的方法与消息</h2><a id="more"></a>
+<ul>
+<li><strong>方法</strong>：与一个类相关的一段实际代码，并给出一个特定的名字。</li>
+<li><strong>消息</strong>：发送给对象的名称和一组参数。示例：向0x12345678对象发送meaning并且没有参数。</li>
+<li><strong>选择器</strong>：表示消息或方法名称的一种特殊方式，表示为类型SEL。选择器本质上就是不透明的字符串，它们被管理，因此可以使用简单的指针相等来比较它们，从而提高速度。（实现可能会有所不同，但这基本上是他们在外部看起来的样子。）例如：@selector(meaning)</li>
 <li><strong>消息发送</strong>：接收信息并查找和执行适当方法的过程。</li>
 </ul>
 <h2 id="方法与消息发送"><a href="#方法与消息发送" class="headerlink" title="方法与消息发送"></a>方法与消息发送</h2><p><strong>消息</strong>在OC中<strong>方法调用</strong>是一个<strong>消息发送</strong>的过程。OC方法最终被生成为C函数，并带有一些额外的参数。这个C函数objc_msgSend就负责<strong>消息发送。</strong></p>
@@ -456,16 +453,15 @@
 </li>
 <li><p>找到了，同3</p>
 </li>
-<li>均未找到imp,进入动态方法解析流程resolveMethod</li>
-</ol>
+<li><p>均未找到imp,进入动态方法解析流程resolveMethod</p>
 <img src="/2022/01/22/iOS-消息转发篇-Message-Forwarding-消息机制/1.png">
+</li>
+</ol>
 <h2 id="消息转发"><a href="#消息转发" class="headerlink" title="消息转发"></a>消息转发</h2><p>没有方法的实现，程序会在运行时挂掉并抛出 unrecognized selector sent to … 的异常。但在异常抛出前，Objective-C 的运行时会给你三次拯救程序的机会：</p>
 <ul>
 <li>Method resolution</li>
-<li><p>Fast forwarding</p>
-</li>
-<li><p>Normal forwarding</p>
-</li>
+<li>Fast forwarding</li>
+<li>Normal forwarding</li>
 </ul>
 <h4 id="动态方法解析-Method-Resolution"><a href="#动态方法解析-Method-Resolution" class="headerlink" title="动态方法解析: Method Resolution"></a>动态方法解析: Method Resolution</h4><p>首先，Objective-C 运行时会调用以下方法，让你有机会提供一个函数实现。如果你添加了函数并返回 YES， 那运行时系统就会重新启动一次消息发送的过程。</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel &#123;&#125; (实例方法)</span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveClassMethod:(SEL)sel &#123;&#125;  (类方法)</span><br></pre></td></tr></table></figure>
@@ -528,6 +524,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/01/22/iOS-消息转发篇-Message-Forwarding-消息机制-1/" rel="prev" title="iOS 消息转发篇(Message Forwarding) (消息机制)">
+                iOS 消息转发篇(Message Forwarding) (消息机制) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -623,7 +623,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
