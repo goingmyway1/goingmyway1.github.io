@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-04-17T10:31:58.399Z</updated>
+  <updated>2023-04-18T09:42:16.271Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gerrit添加SSh key 仍报错 Permission denied (publickey)的问题</title>
+    <link href="http://yoursite.com/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2023/04/18/Gerrit添加SSh-key-仍报错-Permission-denied-publickey-的问题/</id>
+    <published>2023-04-18T09:36:09.000Z</published>
+    <updated>2023-04-18T09:42:16.271Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>升级iMac系统之后，突然使用SSH方式提交Gerrit一直提示Permission denied (publickey)，查看本地SSH key也存在，尝试重新生成SSH key进行重新绑定也是不行，git clone也提示无权限。</p><a id="more"></a><h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>本地OpenSSH的版本号，如果版本≥8.8，就会出现这个问题。<br>可以在终端执行ssh -V查看，发现版本号为9.0</p> <img src="/2023/04/18/Gerrit添加SSh-key-仍报错-Permission-denied-publickey-的问题/终端.png" title="终端图"><h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>例如Gerrit SSH地址为ssh:<a href="mailto://xuefei@gerrit.dev.aicfe.cn" target="_blank" rel="noopener">//xuefei@gerrit.dev.aicfe.cn</a>:29418<br>配置.ssh目录下的config文件如下：<br>Host gerrit.dev.aicfe.cn<br>HostName gerrit.dev.aicfe.cn<br>User xuefei<br>PubkeyAcceptedKeyTypes +ssh-rsa<br>IdentityFile ~/.ssh/id_rsa<br>Port 29418</p><p>配置好后，就可以正常提交和拉取了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;升级iMac系统之后，突然使用SSH方式提交Gerrit一直提示Permission denied (publickey)，查看本地SSH key也存在，尝试重新生成SSH key进行重新绑定也是不行，git clone也提示无权限。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+      <category term="Gerrit" scheme="http://yoursite.com/tags/Gerrit/"/>
+    
+  </entry>
   
   <entry>
     <title>PMP-项目管理体系-启动过程组</title>
