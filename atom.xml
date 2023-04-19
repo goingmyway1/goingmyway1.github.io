@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://www.sheffi.top/"/>
   <updated>2023-04-18T09:42:16.271Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://www.sheffi.top/</id>
   
   <author>
     <name>Sheffi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Gerrit添加SSh key 仍报错 Permission denied (publickey)的问题</title>
-    <link href="http://yoursite.com/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2023/04/18/Gerrit添加SSh-key-仍报错-Permission-denied-publickey-的问题/</id>
+    <link href="https://www.sheffi.top/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://www.sheffi.top/2023/04/18/Gerrit添加SSh-key-仍报错-Permission-denied-publickey-的问题/</id>
     <published>2023-04-18T09:36:09.000Z</published>
     <updated>2023-04-18T09:42:16.271Z</updated>
     
@@ -31,19 +31,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+      <category term="Mac" scheme="https://www.sheffi.top/tags/Mac/"/>
     
-      <category term="Gerrit" scheme="http://yoursite.com/tags/Gerrit/"/>
+      <category term="Gerrit" scheme="https://www.sheffi.top/tags/Gerrit/"/>
     
   </entry>
   
   <entry>
     <title>PMP-项目管理体系-启动过程组</title>
-    <link href="http://yoursite.com/2023/04/16/PMP-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB-%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E7%BB%84/"/>
-    <id>http://yoursite.com/2023/04/16/PMP-项目管理体系-启动过程组/</id>
+    <link href="https://www.sheffi.top/2023/04/16/PMP-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB-%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E7%BB%84/"/>
+    <id>https://www.sheffi.top/2023/04/16/PMP-项目管理体系-启动过程组/</id>
     <published>2023-04-16T13:57:37.000Z</published>
     <updated>2023-04-17T10:31:58.399Z</updated>
     
@@ -60,17 +60,17 @@
     
     </summary>
     
-      <category term="PMP" scheme="http://yoursite.com/categories/PMP/"/>
+      <category term="PMP" scheme="https://www.sheffi.top/categories/PMP/"/>
     
     
-      <category term="PMP" scheme="http://yoursite.com/tags/PMP/"/>
+      <category term="PMP" scheme="https://www.sheffi.top/tags/PMP/"/>
     
   </entry>
   
   <entry>
     <title>PMP-项目管理“十五至尊图”</title>
-    <link href="http://yoursite.com/2023/04/16/PMP-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E2%80%9C%E5%8D%81%E4%BA%94%E8%87%B3%E5%B0%8A%E5%9B%BE%E2%80%9D/"/>
-    <id>http://yoursite.com/2023/04/16/PMP-项目管理“十五至尊图”/</id>
+    <link href="https://www.sheffi.top/2023/04/16/PMP-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E2%80%9C%E5%8D%81%E4%BA%94%E8%87%B3%E5%B0%8A%E5%9B%BE%E2%80%9D/"/>
+    <id>https://www.sheffi.top/2023/04/16/PMP-项目管理“十五至尊图”/</id>
     <published>2023-04-16T13:54:56.000Z</published>
     <updated>2023-04-16T13:55:55.411Z</updated>
     
@@ -88,17 +88,17 @@
     
     </summary>
     
-      <category term="PMP" scheme="http://yoursite.com/categories/PMP/"/>
+      <category term="PMP" scheme="https://www.sheffi.top/categories/PMP/"/>
     
     
-      <category term="PMP" scheme="http://yoursite.com/tags/PMP/"/>
+      <category term="PMP" scheme="https://www.sheffi.top/tags/PMP/"/>
     
   </entry>
   
   <entry>
     <title>PMP-项目管理概述</title>
-    <link href="http://yoursite.com/2023/04/06/PMP-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E6%A6%82%E8%BF%B0/"/>
-    <id>http://yoursite.com/2023/04/06/PMP-项目管理概述/</id>
+    <link href="https://www.sheffi.top/2023/04/06/PMP-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E6%A6%82%E8%BF%B0/"/>
+    <id>https://www.sheffi.top/2023/04/06/PMP-项目管理概述/</id>
     <published>2023-04-06T07:54:09.000Z</published>
     <updated>2023-04-06T09:39:21.871Z</updated>
     
@@ -118,17 +118,17 @@
     
     </summary>
     
-      <category term="PMP" scheme="http://yoursite.com/categories/PMP/"/>
+      <category term="PMP" scheme="https://www.sheffi.top/categories/PMP/"/>
     
     
-      <category term="PMP" scheme="http://yoursite.com/tags/PMP/"/>
+      <category term="PMP" scheme="https://www.sheffi.top/tags/PMP/"/>
     
   </entry>
   
   <entry>
     <title>iOS Extension断点调试</title>
-    <link href="http://yoursite.com/2022/02/09/iOS-Extension%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/"/>
-    <id>http://yoursite.com/2022/02/09/iOS-Extension断点调试/</id>
+    <link href="https://www.sheffi.top/2022/02/09/iOS-Extension%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/"/>
+    <id>https://www.sheffi.top/2022/02/09/iOS-Extension断点调试/</id>
     <published>2022-02-09T06:37:40.000Z</published>
     <updated>2022-02-09T07:20:00.932Z</updated>
     
@@ -140,17 +140,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS 消息转发篇(Message Forwarding) (消息机制)</title>
-    <link href="http://yoursite.com/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/"/>
-    <id>http://yoursite.com/2022/01/22/iOS-消息转发篇-Message-Forwarding-消息机制/</id>
+    <link href="https://www.sheffi.top/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/"/>
+    <id>https://www.sheffi.top/2022/01/22/iOS-消息转发篇-Message-Forwarding-消息机制/</id>
     <published>2022-01-22T07:49:40.000Z</published>
     <updated>2022-01-22T08:01:12.113Z</updated>
     
@@ -162,17 +162,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS 15 适配手册</title>
-    <link href="http://yoursite.com/2022/01/15/iOS-15-%E9%80%82%E9%85%8D%E6%89%8B%E5%86%8C/"/>
-    <id>http://yoursite.com/2022/01/15/iOS-15-适配手册/</id>
+    <link href="https://www.sheffi.top/2022/01/15/iOS-15-%E9%80%82%E9%85%8D%E6%89%8B%E5%86%8C/"/>
+    <id>https://www.sheffi.top/2022/01/15/iOS-15-适配手册/</id>
     <published>2022-01-15T03:07:37.000Z</published>
     <updated>2022-02-09T06:41:51.163Z</updated>
     
@@ -184,17 +184,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS电话状态监听</title>
-    <link href="http://yoursite.com/2022/01/06/iOS%E7%94%B5%E8%AF%9D%E7%8A%B6%E6%80%81%E7%9B%91%E5%90%AC/"/>
-    <id>http://yoursite.com/2022/01/06/iOS电话状态监听/</id>
+    <link href="https://www.sheffi.top/2022/01/06/iOS%E7%94%B5%E8%AF%9D%E7%8A%B6%E6%80%81%E7%9B%91%E5%90%AC/"/>
+    <id>https://www.sheffi.top/2022/01/06/iOS电话状态监听/</id>
     <published>2022-01-06T01:56:12.000Z</published>
     <updated>2022-01-06T02:01:10.237Z</updated>
     
@@ -209,17 +209,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS封装SDK(分别生成.a和framework)</title>
-    <link href="http://yoursite.com/2021/11/26/iOS%E5%B0%81%E8%A3%85SDK-%E5%88%86%E5%88%AB%E7%94%9F%E6%88%90-a%E5%92%8Cframework/"/>
-    <id>http://yoursite.com/2021/11/26/iOS封装SDK-分别生成-a和framework/</id>
+    <link href="https://www.sheffi.top/2021/11/26/iOS%E5%B0%81%E8%A3%85SDK-%E5%88%86%E5%88%AB%E7%94%9F%E6%88%90-a%E5%92%8Cframework/"/>
+    <id>https://www.sheffi.top/2021/11/26/iOS封装SDK-分别生成-a和framework/</id>
     <published>2021-11-26T03:39:37.000Z</published>
     <updated>2022-02-09T06:42:56.524Z</updated>
     
@@ -231,17 +231,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>解决webview全屏播放视频</title>
-    <link href="http://yoursite.com/2021/11/24/%E8%A7%A3%E5%86%B3webview%E5%85%A8%E5%B1%8F%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/"/>
-    <id>http://yoursite.com/2021/11/24/解决webview全屏播放视频/</id>
+    <link href="https://www.sheffi.top/2021/11/24/%E8%A7%A3%E5%86%B3webview%E5%85%A8%E5%B1%8F%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/"/>
+    <id>https://www.sheffi.top/2021/11/24/解决webview全屏播放视频/</id>
     <published>2021-11-24T08:41:18.000Z</published>
     <updated>2022-02-09T06:40:56.300Z</updated>
     
@@ -253,17 +253,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>常用hexo命令</title>
-    <link href="http://yoursite.com/2021/11/24/%E5%B8%B8%E7%94%A8hexo%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2021/11/24/常用hexo命令/</id>
+    <link href="https://www.sheffi.top/2021/11/24/%E5%B8%B8%E7%94%A8hexo%E5%91%BD%E4%BB%A4/"/>
+    <id>https://www.sheffi.top/2021/11/24/常用hexo命令/</id>
     <published>2021-11-24T08:28:10.000Z</published>
     <updated>2021-11-24T08:35:52.424Z</updated>
     
@@ -275,17 +275,17 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+      <category term="hexo" scheme="https://www.sheffi.top/categories/hexo/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="https://www.sheffi.top/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>Xcode 13新建项目Products目录显示方法</title>
-    <link href="http://yoursite.com/2021/11/24/Xcode-13%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AEProducts%E7%9B%AE%E5%BD%95%E6%98%BE%E7%A4%BA%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2021/11/24/Xcode-13新建项目Products目录显示方法/</id>
+    <link href="https://www.sheffi.top/2021/11/24/Xcode-13%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AEProducts%E7%9B%AE%E5%BD%95%E6%98%BE%E7%A4%BA%E6%96%B9%E6%B3%95/"/>
+    <id>https://www.sheffi.top/2021/11/24/Xcode-13新建项目Products目录显示方法/</id>
     <published>2021-11-24T05:36:37.000Z</published>
     <updated>2021-11-24T08:24:02.544Z</updated>
     
@@ -298,17 +298,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>macOS上搭建Flutter开发环境</title>
-    <link href="http://yoursite.com/2019/09/18/macOS%E4%B8%8A%E6%90%AD%E5%BB%BAFlutter%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
-    <id>http://yoursite.com/2019/09/18/macOS上搭建Flutter开发环境/</id>
+    <link href="https://www.sheffi.top/2019/09/18/macOS%E4%B8%8A%E6%90%AD%E5%BB%BAFlutter%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <id>https://www.sheffi.top/2019/09/18/macOS上搭建Flutter开发环境/</id>
     <published>2019-09-18T06:08:36.000Z</published>
     <updated>2022-02-09T06:44:10.032Z</updated>
     
@@ -326,17 +326,17 @@
     
     </summary>
     
-      <category term="Flutter" scheme="http://yoursite.com/categories/Flutter/"/>
+      <category term="Flutter" scheme="https://www.sheffi.top/categories/Flutter/"/>
     
     
-      <category term="Flutter" scheme="http://yoursite.com/tags/Flutter/"/>
+      <category term="Flutter" scheme="https://www.sheffi.top/tags/Flutter/"/>
     
   </entry>
   
   <entry>
     <title>十七款PDF在线转换器</title>
-    <link href="http://yoursite.com/2019/09/10/%E5%8D%81%E4%B8%83%E6%AC%BEPDF%E5%9C%A8%E7%BA%BF%E8%BD%AC%E6%8D%A2%E5%99%A8/"/>
-    <id>http://yoursite.com/2019/09/10/十七款PDF在线转换器/</id>
+    <link href="https://www.sheffi.top/2019/09/10/%E5%8D%81%E4%B8%83%E6%AC%BEPDF%E5%9C%A8%E7%BA%BF%E8%BD%AC%E6%8D%A2%E5%99%A8/"/>
+    <id>https://www.sheffi.top/2019/09/10/十七款PDF在线转换器/</id>
     <published>2019-09-10T03:17:17.000Z</published>
     <updated>2022-02-09T06:42:04.459Z</updated>
     
@@ -348,15 +348,15 @@
     
     </summary>
     
-      <category term="PDF" scheme="http://yoursite.com/categories/PDF/"/>
+      <category term="PDF" scheme="https://www.sheffi.top/categories/PDF/"/>
     
     
   </entry>
   
   <entry>
     <title>[译] 成为一个优秀程序员的101个小建议</title>
-    <link href="http://yoursite.com/2019/08/29/%E8%AF%91-%E6%88%90%E4%B8%BA%E4%B8%80%E4%B8%AA%E4%BC%98%E7%A7%80%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84101%E4%B8%AA%E5%B0%8F%E5%BB%BA%E8%AE%AE/"/>
-    <id>http://yoursite.com/2019/08/29/译-成为一个优秀程序员的101个小建议/</id>
+    <link href="https://www.sheffi.top/2019/08/29/%E8%AF%91-%E6%88%90%E4%B8%BA%E4%B8%80%E4%B8%AA%E4%BC%98%E7%A7%80%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84101%E4%B8%AA%E5%B0%8F%E5%BB%BA%E8%AE%AE/"/>
+    <id>https://www.sheffi.top/2019/08/29/译-成为一个优秀程序员的101个小建议/</id>
     <published>2019-08-29T01:26:09.000Z</published>
     <updated>2022-02-09T06:41:59.842Z</updated>
     
@@ -369,15 +369,15 @@
     
     </summary>
     
-      <category term="译文" scheme="http://yoursite.com/categories/%E8%AF%91%E6%96%87/"/>
+      <category term="译文" scheme="https://www.sheffi.top/categories/%E8%AF%91%E6%96%87/"/>
     
     
   </entry>
   
   <entry>
     <title>iOS内购相关封装</title>
-    <link href="http://yoursite.com/2019/05/28/iOS%E5%86%85%E8%B4%AD%E7%9B%B8%E5%85%B3%E5%B0%81%E8%A3%85/"/>
-    <id>http://yoursite.com/2019/05/28/iOS内购相关封装/</id>
+    <link href="https://www.sheffi.top/2019/05/28/iOS%E5%86%85%E8%B4%AD%E7%9B%B8%E5%85%B3%E5%B0%81%E8%A3%85/"/>
+    <id>https://www.sheffi.top/2019/05/28/iOS内购相关封装/</id>
     <published>2019-05-28T09:10:23.000Z</published>
     <updated>2021-11-24T08:06:09.634Z</updated>
     
@@ -389,19 +389,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/tags/iOS/"/>
     
-      <category term="内购" scheme="http://yoursite.com/tags/%E5%86%85%E8%B4%AD/"/>
+      <category term="内购" scheme="https://www.sheffi.top/tags/%E5%86%85%E8%B4%AD/"/>
     
   </entry>
   
   <entry>
     <title>React Native开发环境的搭建（Mac）</title>
-    <link href="http://yoursite.com/2019/05/24/React-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88Mac%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/05/24/React-Native开发环境的搭建（Mac）/</id>
+    <link href="https://www.sheffi.top/2019/05/24/React-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88Mac%EF%BC%89/"/>
+    <id>https://www.sheffi.top/2019/05/24/React-Native开发环境的搭建（Mac）/</id>
     <published>2019-05-24T06:38:30.000Z</published>
     <updated>2019-05-27T08:16:51.569Z</updated>
     
@@ -416,17 +416,17 @@
     
     </summary>
     
-      <category term="React Native" scheme="http://yoursite.com/categories/React-Native/"/>
+      <category term="React Native" scheme="https://www.sheffi.top/categories/React-Native/"/>
     
     
-      <category term="React Native" scheme="http://yoursite.com/tags/React-Native/"/>
+      <category term="React Native" scheme="https://www.sheffi.top/tags/React-Native/"/>
     
   </entry>
   
   <entry>
     <title>iOS截图那些事</title>
-    <link href="http://yoursite.com/2018/09/06/iOS%E6%88%AA%E5%9B%BE%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    <id>http://yoursite.com/2018/09/06/iOS截图那些事/</id>
+    <link href="https://www.sheffi.top/2018/09/06/iOS%E6%88%AA%E5%9B%BE%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <id>https://www.sheffi.top/2018/09/06/iOS截图那些事/</id>
     <published>2018-09-06T02:45:04.000Z</published>
     <updated>2021-11-26T03:41:10.611Z</updated>
     
@@ -438,19 +438,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://www.sheffi.top/tags/iOS/"/>
     
-      <category term="截图" scheme="http://yoursite.com/tags/%E6%88%AA%E5%9B%BE/"/>
+      <category term="截图" scheme="https://www.sheffi.top/tags/%E6%88%AA%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>【C实现】给出一个字符串，要求将其按照单词顺序进行反转 </title>
-    <link href="http://yoursite.com/2018/08/21/%E3%80%90C%E5%AE%9E%E7%8E%B0%E3%80%91%E7%BB%99%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E8%A6%81%E6%B1%82%E5%B0%86%E5%85%B6%E6%8C%89%E7%85%A7%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F%E8%BF%9B%E8%A1%8C%E5%8F%8D%E8%BD%AC/"/>
-    <id>http://yoursite.com/2018/08/21/【C实现】给出一个字符串，要求将其按照单词顺序进行反转/</id>
+    <link href="https://www.sheffi.top/2018/08/21/%E3%80%90C%E5%AE%9E%E7%8E%B0%E3%80%91%E7%BB%99%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E8%A6%81%E6%B1%82%E5%B0%86%E5%85%B6%E6%8C%89%E7%85%A7%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F%E8%BF%9B%E8%A1%8C%E5%8F%8D%E8%BD%AC/"/>
+    <id>https://www.sheffi.top/2018/08/21/【C实现】给出一个字符串，要求将其按照单词顺序进行反转/</id>
     <published>2018-08-21T02:35:59.000Z</published>
     <updated>2018-09-07T06:13:51.251Z</updated>
     
@@ -466,19 +466,19 @@
     
     </summary>
     
-      <category term="C" scheme="http://yoursite.com/categories/C/"/>
+      <category term="C" scheme="https://www.sheffi.top/categories/C/"/>
     
     
-      <category term="C语言" scheme="http://yoursite.com/tags/C%E8%AF%AD%E8%A8%80/"/>
+      <category term="C语言" scheme="https://www.sheffi.top/tags/C%E8%AF%AD%E8%A8%80/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://www.sheffi.top/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>QLPreviewController</title>
-    <link href="http://yoursite.com/2018/05/14/hello-world/"/>
-    <id>http://yoursite.com/2018/05/14/hello-world/</id>
+    <link href="https://www.sheffi.top/2018/05/14/hello-world/"/>
+    <id>https://www.sheffi.top/2018/05/14/hello-world/</id>
     <published>2018-05-14T13:53:54.000Z</published>
     <updated>2018-09-07T06:14:07.776Z</updated>
     
@@ -498,7 +498,7 @@
     
     </summary>
     
-      <category term="Object-C" scheme="http://yoursite.com/categories/Object-C/"/>
+      <category term="Object-C" scheme="https://www.sheffi.top/categories/Object-C/"/>
     
     
   </entry>
