@@ -232,13 +232,16 @@
     var g = document.createElement('div');
     g.className = 'cursor-glow';
     document.body.appendChild(g);
-    var x = -200, y = -200, cx = x, cy = y;
-    document.addEventListener('mousemove', function (e) { x = e.clientX; y = e.clientY; }, { passive: true });
-    (function loop() {
+    var x = -200, y = -200, cx = x, cy = y, running = false, last = 0;
+    function loop() {
       cx += (x - cx) * 0.12; cy += (y - cy) * 0.12;
       g.style.transform = 'translate3d(' + (cx - 160) + 'px,' + (cy - 160) + 'px,0)';
-      requestAnimationFrame(loop);
-    })();
+      if (performance.now() - last < 400) { requestAnimationFrame(loop); } else { running = false; }
+    }
+    document.addEventListener('mousemove', function (e) {
+      x = e.clientX; y = e.clientY; last = performance.now();
+      if (!running) { running = true; requestAnimationFrame(loop); }
+    }, { passive: true });
   }
 
   /* 4. 代码块增强：三点标题栏 + 语言 + 复制 */
