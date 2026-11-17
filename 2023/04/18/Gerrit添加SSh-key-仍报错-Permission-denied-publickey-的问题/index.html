@@ -81,7 +81,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.sheffi.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"www.sheffi.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -421,7 +421,7 @@
 <span id="more"></span>
 
 <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>本地OpenSSH的版本号，如果版本≥8.8，就会出现这个问题。<br>可以在终端执行ssh -V查看，发现版本号为9.0</p>
- <img loading="lazy" decoding="async" src="/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/%E7%BB%88%E7%AB%AF.webp" srcset="/img/loading.gif" lazyload class="" title="终端图">
+ <img loading="lazy" decoding="async" src="/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/%E7%BB%88%E7%AB%AF.webp" class="" title="终端图">
 
 <h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>例如Gerrit SSH地址为ssh:&#x2F;&#x2F;<a href="mailto:&#120;&#x75;&#101;&#x66;&#101;&#x69;&#x40;&#x67;&#101;&#x72;&#x72;&#105;&#x74;&#46;&#x64;&#x65;&#x76;&#x2e;&#97;&#105;&#x63;&#x66;&#101;&#46;&#x63;&#x6e;">&#120;&#x75;&#101;&#x66;&#101;&#x69;&#x40;&#x67;&#101;&#x72;&#x72;&#105;&#x74;&#46;&#x64;&#x65;&#x76;&#x2e;&#97;&#105;&#x63;&#x66;&#101;&#46;&#x63;&#x6e;</a>:29418<br>配置.ssh目录下的config文件如下：<br>Host gerrit.dev.aicfe.cn<br>HostName gerrit.dev.aicfe.cn<br>User xuefei<br>PubkeyAcceptedKeyTypes +ssh-rsa<br>IdentityFile ~&#x2F;.ssh&#x2F;id_rsa<br>Port 29418</p>
 <p>配置好后，就可以正常提交和拉取了。</p>
@@ -671,10 +671,6 @@
 
 
 
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
 
 
 
