@@ -26,14 +26,13 @@
 <meta property="og:site_name" content="不靠谱的程序猿">
 <meta property="og:description" content="安装依赖1.先安装Homebrew（若已安装，可跳过） 1&#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F; 2.安装node和webpack 12brew install nodebrew install webpack 测试node和webpack是否安装成">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.sheffi.top/2019/05/24/React-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88Mac%EF%BC%89/screenShots.webp">
-<meta property="og:image" content="https://www.sheffi.top/2019/05/24/React-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88Mac%EF%BC%89/%E7%9A%AE%E5%8D%A1%E4%B8%98.gif">
+<meta property="og:image" content="https://www.sheffi.top/img/og-cover.png">
 <meta property="article:published_time" content="2019-05-24T06:38:30.000Z">
 <meta property="article:modified_time" content="2026-11-16T15:14:11.000Z">
 <meta property="article:author" content="Sheffi">
 <meta property="article:tag" content="React Native">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.sheffi.top/2019/05/24/React-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88Mac%EF%BC%89/screenShots.webp">
+<meta name="twitter:image" content="https://www.sheffi.top/img/og-cover.png">
   
   
   
@@ -79,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.sheffi.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"www.sheffi.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -418,7 +417,7 @@
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">react-<span class="hljs-keyword">native</span> init AwesomeProject<br></code></pre></td></tr></table></figure>
 <p>2.编译并运行 React Native 应用</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">cd</span> AwesomeProject<br>react-native <span class="hljs-keyword">run</span>-ios<br></code></pre></td></tr></table></figure>
-<img src="/2019/05/24/React-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88Mac%EF%BC%89/screenShots.webp" srcset="/img/loading.gif" lazyload class="" title="运行结果">
+<img loading="lazy" decoding="async" src="/2019/05/24/React-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88Mac%EF%BC%89/screenShots.webp" srcset="/img/loading.gif" lazyload class="" title="运行结果">
 
 <blockquote>
 <p>提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。第一次运行会比较慢，需要耐心等待一下</p>
@@ -428,7 +427,7 @@
 <li>使用你喜欢的编辑器打开App.js并随便改上几行。 </li>
 <li>在 iOS 模拟器中按下<em>⌘-R</em>就可以刷新 APP并看到你的最新修改！（如果没有反应，请检查模拟器的 Hardware 菜单中，connect hardware keyboard    选项是否选中开启）</li>
 </ul>
-<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><img src="/2019/05/24/React-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88Mac%EF%BC%89/%E7%9A%AE%E5%8D%A1%E4%B8%98.gif" srcset="/img/loading.gif" lazyload class="" title="皮卡皮卡丘">
+<h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><img loading="lazy" decoding="async" src="/2019/05/24/React-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88Mac%EF%BC%89/%E7%9A%AE%E5%8D%A1%E4%B8%98.gif" srcset="/img/loading.gif" lazyload class="" title="皮卡皮卡丘">
 
                 
               </div>

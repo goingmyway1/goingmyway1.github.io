@@ -26,14 +26,14 @@
 <meta property="og:site_name" content="不靠谱的程序猿">
 <meta property="og:description" content="问题描述升级iMac系统之后，突然使用SSH方式提交Gerrit一直提示Permission denied (publickey)，查看本地SSH key也存在，尝试重新生成SSH key进行重新绑定也是不行，git clone也提示无权限。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.sheffi.top/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/%E7%BB%88%E7%AB%AF.webp">
+<meta property="og:image" content="https://www.sheffi.top/img/og-cover.png">
 <meta property="article:published_time" content="2023-04-18T09:36:09.000Z">
-<meta property="article:modified_time" content="2026-11-16T15:14:11.000Z">
+<meta property="article:modified_time" content="2026-11-17T13:27:43.961Z">
 <meta property="article:author" content="Sheffi">
 <meta property="article:tag" content="Mac">
 <meta property="article:tag" content="Gerrit">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.sheffi.top/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/%E7%BB%88%E7%AB%AF.webp">
+<meta name="twitter:image" content="https://www.sheffi.top/img/og-cover.png">
   
   
   
@@ -79,7 +79,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.sheffi.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"www.sheffi.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -399,13 +399,13 @@
             
               <div class="markdown-body">
                 
-                <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>升级iMac系统之后，突然使用SSH方式提交Gerrit一直提示Permission denied (publickey)，查看本地SSH key也存在，尝试重新生成SSH key进行重新绑定也是不行，git clone也提示无权限。</p>
+                <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>升级iMac系统之后，突然使用SSH方式提交Gerrit一直提示Permission denied (publickey)，查看本地SSH key也存在，尝试重新生成SSH key进行重新绑定也是不行，git clone也提示无权限。</p>
 <span id="more"></span>
 
-<h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>本地OpenSSH的版本号，如果版本≥8.8，就会出现这个问题。<br>可以在终端执行ssh -V查看，发现版本号为9.0</p>
- <img src="/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/%E7%BB%88%E7%AB%AF.webp" srcset="/img/loading.gif" lazyload class="" title="终端图">
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>本地OpenSSH的版本号，如果版本≥8.8，就会出现这个问题。<br>可以在终端执行ssh -V查看，发现版本号为9.0</p>
+ <img loading="lazy" decoding="async" src="/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/%E7%BB%88%E7%AB%AF.webp" srcset="/img/loading.gif" lazyload class="" title="终端图">
 
-<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>例如Gerrit SSH地址为ssh:&#x2F;&#x2F;<a href="mailto:&#x78;&#x75;&#101;&#x66;&#x65;&#x69;&#64;&#103;&#101;&#x72;&#x72;&#x69;&#x74;&#46;&#x64;&#101;&#x76;&#46;&#x61;&#105;&#x63;&#x66;&#101;&#x2e;&#99;&#x6e;">&#x78;&#x75;&#101;&#x66;&#x65;&#x69;&#64;&#103;&#101;&#x72;&#x72;&#x69;&#x74;&#46;&#x64;&#101;&#x76;&#46;&#x61;&#105;&#x63;&#x66;&#101;&#x2e;&#99;&#x6e;</a>:29418<br>配置.ssh目录下的config文件如下：<br>Host gerrit.dev.aicfe.cn<br>HostName gerrit.dev.aicfe.cn<br>User xuefei<br>PubkeyAcceptedKeyTypes +ssh-rsa<br>IdentityFile ~&#x2F;.ssh&#x2F;id_rsa<br>Port 29418</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>例如Gerrit SSH地址为ssh:&#x2F;&#x2F;<a href="mailto:&#120;&#117;&#x65;&#x66;&#101;&#105;&#64;&#103;&#x65;&#x72;&#114;&#105;&#116;&#x2e;&#100;&#101;&#118;&#46;&#x61;&#105;&#99;&#x66;&#x65;&#46;&#x63;&#x6e;">&#120;&#117;&#x65;&#x66;&#101;&#105;&#64;&#103;&#x65;&#x72;&#114;&#105;&#116;&#x2e;&#100;&#101;&#118;&#46;&#x61;&#105;&#99;&#x66;&#x65;&#46;&#x63;&#x6e;</a>:29418<br>配置.ssh目录下的config文件如下：<br>Host gerrit.dev.aicfe.cn<br>HostName gerrit.dev.aicfe.cn<br>User xuefei<br>PubkeyAcceptedKeyTypes +ssh-rsa<br>IdentityFile ~&#x2F;.ssh&#x2F;id_rsa<br>Port 29418</p>
 <p>配置好后，就可以正常提交和拉取了。</p>
 
                 

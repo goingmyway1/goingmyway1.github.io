@@ -26,14 +26,13 @@
 <meta property="og:site_name" content="不靠谱的程序猿">
 <meta property="og:description" content="OC的方法与消息">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.sheffi.top/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/1.webp">
-<meta property="og:image" content="https://www.sheffi.top/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/2.webp">
+<meta property="og:image" content="https://www.sheffi.top/img/og-cover.png">
 <meta property="article:published_time" content="2022-01-22T07:49:40.000Z">
 <meta property="article:modified_time" content="2026-11-16T15:14:11.000Z">
 <meta property="article:author" content="Sheffi">
 <meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.sheffi.top/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/1.webp">
+<meta name="twitter:image" content="https://www.sheffi.top/img/og-cover.png">
   
   
   
@@ -79,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.sheffi.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"www.sheffi.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -426,7 +425,7 @@
 <li><p>找到了，同3</p>
 </li>
 <li><p>均未找到imp,进入动态方法解析流程resolveMethod</p>
-<img src="/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/1.webp" srcset="/img/loading.gif" lazyload class=""></li>
+<img loading="lazy" decoding="async" src="/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/1.webp" srcset="/img/loading.gif" lazyload class=""></li>
 </ol>
 <h2 id="消息转发"><a href="#消息转发" class="headerlink" title="消息转发"></a>消息转发</h2><p>没有方法的实现，程序会在运行时挂掉并抛出 unrecognized selector sent to … 的异常。但在异常抛出前，Objective-C 的运行时会给你三次拯救程序的机会：</p>
 <ul>
@@ -442,7 +441,7 @@
 
 <p>我们只需要在 resolveInstanceMethod: 方法中，利用 class_addMethod 方法，将未实现的 eatMethod：绑定到 eatMethod 上就能完成转发，最后返回 YES。</p>
 <p>这里第一字符v代表函数返回类型void，第二个字符@代表self的类型id，第三个字符:代表_cmd的类型SEL。<a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100">官方地址</a></p>
-<img src="/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/2.webp" srcset="/img/loading.gif" lazyload class="">
+<img loading="lazy" decoding="async" src="/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/2.webp" srcset="/img/loading.gif" lazyload class="">
 
 <h4 id="快速转发-Fast-Rorwarding"><a href="#快速转发-Fast-Rorwarding" class="headerlink" title="快速转发: Fast Rorwarding"></a>快速转发: Fast Rorwarding</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">- (<span class="hljs-type">id</span>)forwardingTargetForSelector:(SEL)aSelector &#123;&#125;<br></code></pre></td></tr></table></figure>
 
