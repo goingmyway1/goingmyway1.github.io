@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-Hans" data-default-color-scheme=auto>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -25,7 +25,7 @@
 <meta property="og:url" content="https://www.sheffi.top/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="不靠谱的程序猿">
 <meta property="og:description" content="问题描述升级iMac系统之后，突然使用SSH方式提交Gerrit一直提示Permission denied (publickey)，查看本地SSH key也存在，尝试重新生成SSH key进行重新绑定也是不行，git clone也提示无权限。">
-<meta property="og:locale">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.sheffi.top/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/%E7%BB%88%E7%AB%AF.webp">
 <meta property="article:published_time" content="2023-04-18T09:36:09.000Z">
 <meta property="article:modified_time" content="2026-11-16T15:14:11.000Z">
@@ -126,7 +126,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                <span>ホーム</span>
+                <span>首页</span>
               </a>
             </li>
           
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                <span>アーカイブ</span>
+                <span>归档</span>
               </a>
             </li>
           
@@ -150,7 +150,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                <span>カテゴリ</span>
+                <span>分类</span>
               </a>
             </li>
           
@@ -162,7 +162,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                <span>タグ</span>
+                <span>标签</span>
               </a>
             </li>
           
@@ -186,7 +186,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                <span>プロフィール</span>
+                <span>关于</span>
               </a>
             </li>
           
@@ -218,7 +218,7 @@
               <a href="/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-home-fill"></i>
-                  <span>ホーム</span>
+                  <span>首页</span>
                 </div>
               </a>
             </div>
@@ -232,7 +232,7 @@
               <a href="/archives/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-archive-fill"></i>
-                  <span>アーカイブ</span>
+                  <span>归档</span>
                 </div>
               </a>
             </div>
@@ -246,7 +246,7 @@
               <a href="/categories/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-category-fill"></i>
-                  <span>カテゴリ</span>
+                  <span>分类</span>
                 </div>
               </a>
             </div>
@@ -260,7 +260,7 @@
               <a href="/tags/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-tags-fill"></i>
-                  <span>タグ</span>
+                  <span>标签</span>
                 </div>
               </a>
             </div>
@@ -288,7 +288,7 @@
               <a href="/about/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-user-fill"></i>
-                  <span>プロフィール</span>
+                  <span>关于</span>
                 </div>
               </a>
             </div>
@@ -297,12 +297,12 @@
         
         
           <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
-               data-label-light="ライト"
-               data-label-dark="ダーク">
+               data-label-light="开灯"
+               data-label-dark="关灯">
             <a href="javascript:;" aria-label="Color Toggle">
               <div class="mobile-grid-item">
                 <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
-                <span id="mobile-color-toggle-label">ダーク</span>
+                <span id="mobile-color-toggle-label">关灯</span>
               </div>
             </a>
           </div>
@@ -333,7 +333,7 @@
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
         <time datetime="2023-04-18 17:36" pubdate>
-          April 18, 2023 pm
+          2023年4月18日 下午
         </time>
       </span>
     
@@ -344,7 +344,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          540 単語
+          540 字
         
       </span>
     
@@ -355,7 +355,7 @@
         
         
         
-          5 分
+          5 分钟
         
       </span>
     
@@ -405,7 +405,7 @@
 <h1 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h1><p>本地OpenSSH的版本号，如果版本≥8.8，就会出现这个问题。<br>可以在终端执行ssh -V查看，发现版本号为9.0</p>
  <img src="/2023/04/18/Gerrit%E6%B7%BB%E5%8A%A0SSh-key-%E4%BB%8D%E6%8A%A5%E9%94%99-Permission-denied-publickey-%E7%9A%84%E9%97%AE%E9%A2%98/%E7%BB%88%E7%AB%AF.webp" srcset="/img/loading.gif" lazyload class="" title="终端图">
 
-<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>例如Gerrit SSH地址为ssh:&#x2F;&#x2F;<a href="mailto:&#x78;&#x75;&#x65;&#102;&#101;&#105;&#64;&#x67;&#101;&#x72;&#x72;&#x69;&#x74;&#46;&#100;&#x65;&#x76;&#x2e;&#97;&#105;&#x63;&#102;&#101;&#46;&#x63;&#x6e;">&#x78;&#x75;&#x65;&#102;&#101;&#105;&#64;&#x67;&#101;&#x72;&#x72;&#x69;&#x74;&#46;&#100;&#x65;&#x76;&#x2e;&#97;&#105;&#x63;&#102;&#101;&#46;&#x63;&#x6e;</a>:29418<br>配置.ssh目录下的config文件如下：<br>Host gerrit.dev.aicfe.cn<br>HostName gerrit.dev.aicfe.cn<br>User xuefei<br>PubkeyAcceptedKeyTypes +ssh-rsa<br>IdentityFile ~&#x2F;.ssh&#x2F;id_rsa<br>Port 29418</p>
+<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>例如Gerrit SSH地址为ssh:&#x2F;&#x2F;<a href="mailto:&#x78;&#x75;&#101;&#x66;&#x65;&#x69;&#64;&#103;&#101;&#x72;&#x72;&#x69;&#x74;&#46;&#x64;&#101;&#x76;&#46;&#x61;&#105;&#x63;&#x66;&#101;&#x2e;&#99;&#x6e;">&#x78;&#x75;&#101;&#x66;&#x65;&#x69;&#64;&#103;&#101;&#x72;&#x72;&#x69;&#x74;&#46;&#x64;&#101;&#x76;&#46;&#x61;&#105;&#x63;&#x66;&#101;&#x2e;&#99;&#x6e;</a>:29418<br>配置.ssh目录下的config文件如下：<br>Host gerrit.dev.aicfe.cn<br>HostName gerrit.dev.aicfe.cn<br>User xuefei<br>PubkeyAcceptedKeyTypes +ssh-rsa<br>IdentityFile ~&#x2F;.ssh&#x2F;id_rsa<br>Port 29418</p>
 <p>配置好后，就可以正常提交和拉取了。</p>
 
                 
@@ -460,26 +460,26 @@
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>著者</div>
+          <div>作者</div>
           <div>Sheffi</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>作成日</div>
-          <div>April 18, 2023</div>
+          <div>发布于</div>
+          <div>2023年4月18日</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>著作権</div>
+          <div>许可协议</div>
           <div>
             
               
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-cc-by"></i>
                   </span>
                 </a>
@@ -505,7 +505,7 @@
                     
                       <a href="/2023/04/16/PMP-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB-%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E7%BB%84/" title="PMP-项目管理体系-启动过程组">
                         <span class="hidden-mobile">PMP-项目管理体系-启动过程组</span>
-                        <span class="visible-mobile">次の記事</span>
+                        <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -526,7 +526,7 @@
     <div id="toc">
   <p class="toc-header">
     <i class="iconfont icon-list"></i>
-    <span>見出し</span>
+    <span>目录</span>
   </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
@@ -808,7 +808,7 @@
   
 
   <noscript>
-    <div class="noscript-warning">ブログは JavaScript を有効にすると最適に機能します</div>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
 </body>
 </html>
