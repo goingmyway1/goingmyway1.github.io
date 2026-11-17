@@ -186,3 +186,211 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
+
+/* ============ 进阶动效：滚动渐入 / 视差 / 光晕 / 代码块 / 灯箱 / Konami / 圆扩散 / 开机 ============ */
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 1. 滚动渐入 */
+  function reveal() {
+    var els = document.querySelectorAll('.index-card, .markdown-body img, .photo-grid img');
+    if (!els.length) return;
+    if (reduce || !('IntersectionObserver' in window)) { return; }
+    for (var i = 0; i < els.length; i++) els[i].classList.add('reveal');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+    for (var j = 0; j < els.length; j++) io.observe(els[j]);
+  }
+
+  /* 2. 横幅视差 */
+  function parallax() {
+    var banner = document.getElementById('banner');
+    if (!banner || reduce) return;
+    var text = banner.querySelector('.banner-text');
+    var rain = banner.querySelector('.code-rain');
+    var ticking = false;
+    function apply() {
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      if (y < window.innerHeight) {
+        if (text) text.style.transform = 'translateY(' + y * 0.25 + 'px)';
+        if (rain) rain.style.transform = 'translateY(' + y * 0.12 + 'px)';
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+    }, { passive: true });
+  }
+
+  /* 3. 鼠标光晕 */
+  function cursorGlow() {
+    if (reduce || window.matchMedia('(hover: none)').matches) return;
+    var g = document.createElement('div');
+    g.className = 'cursor-glow';
+    document.body.appendChild(g);
+    var x = -200, y = -200, cx = x, cy = y;
+    document.addEventListener('mousemove', function (e) { x = e.clientX; y = e.clientY; }, { passive: true });
+    (function loop() {
+      cx += (x - cx) * 0.12; cy += (y - cy) * 0.12;
+      g.style.transform = 'translate3d(' + (cx - 160) + 'px,' + (cy - 160) + 'px,0)';
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* 4. 代码块增强：三点标题栏 + 语言 + 复制 */
+  function codeBlocks() {
+    var pres = document.querySelectorAll('.markdown-body pre');
+    for (var i = 0; i < pres.length; i++) {
+      (function (pre) {
+        if (pre.parentNode && pre.parentNode.classList.contains('code-wrap')) return;
+        var code = pre.querySelector('code');
+        var lang = '';
+        if (code) {
+          var m = (code.className || '').match(/language-([\w-]+)/);
+          if (m) lang = m[1];
+        }
+        var wrap = document.createElement('div');
+        wrap.className = 'code-wrap';
+        pre.parentNode.insertBefore(wrap, pre);
+        var bar = document.createElement('div');
+        bar.className = 'code-bar';
+        bar.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>' +
+          '<em>' + (lang || 'code') + '</em><button type="button" class="code-copy">复制</button>';
+        wrap.appendChild(bar);
+        wrap.appendChild(pre);
+        bar.querySelector('.code-copy').addEventListener('click', function () {
+          var btn = this, txt = code ? code.textContent : pre.textContent;
+          function done() { btn.textContent = '已复制'; setTimeout(function () { btn.textContent = '复制'; }, 1500); }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(txt).then(done, done);
+          } else {
+            var ta = document.createElement('textarea');
+            ta.value = txt; document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta); done();
+          }
+        });
+      })(pres[i]);
+    }
+  }
+
+  /* 5. 图片灯箱 */
+  function lightbox() {
+    var imgs = document.querySelectorAll('.markdown-body img, .photo-grid img');
+    if (!imgs.length) return;
+    var box = document.createElement('div');
+    box.className = 'lightbox';
+    box.innerHTML = '<button class="lb-close" aria-label="关闭">×</button><img alt="">';
+    document.body.appendChild(box);
+    var target = box.querySelector('img');
+    var idx = 0, list = [];
+    function show(i) {
+      idx = (i + list.length) % list.length;
+      target.src = list[idx].dataset.full || list[idx].src;
+    }
+    function open(i) { list = [].slice.call(imgs); show(i); box.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function close() { box.classList.remove('open'); document.body.style.overflow = ''; }
+    imgs.forEach(function (img, i) {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function () { open(i); });
+    });
+    box.addEventListener('click', function (e) { if (e.target === box || e.target.className === 'lb-close' || e.target === target) { if (e.target !== target) close(); } });
+    document.querySelector('.lb-close').addEventListener('click', close);
+    document.addEventListener('keydown', function (e) {
+      if (!box.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') show(idx + 1);
+      if (e.key === 'ArrowLeft') show(idx - 1);
+    });
+  }
+
+  /* 6. Konami 秘籍 */
+  function konami() {
+    var seq = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65], pos = 0;
+    document.addEventListener('keydown', function (e) {
+      pos = (e.keyCode === seq[pos]) ? pos + 1 : (e.keyCode === seq[0] ? 1 : 0);
+      if (pos === seq.length) { pos = 0; matrixMode(); }
+    });
+  }
+  function matrixMode() {
+    if (document.querySelector('.matrix-overlay')) return;
+    var c = document.createElement('canvas');
+    c.className = 'matrix-overlay';
+    document.body.appendChild(c);
+    var ctx = c.getContext('2d');
+    var w = c.width = window.innerWidth, h = c.height = window.innerHeight;
+    var size = 16, cols = Math.floor(w / size), drops = [];
+    for (var i = 0; i < cols; i++) drops[i] = Math.random() * -40;
+    var chars = '01アイウエオカキクケコサシスセソ'.split('');
+    var timer = setInterval(function () {
+      ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.fillRect(0, 0, w, h);
+      ctx.font = size + 'px monospace';
+      for (var i = 0; i < cols; i++) {
+        ctx.fillStyle = Math.random() > 0.96 ? '#c8ffd4' : '#27c93f';
+        ctx.fillText(chars[(Math.random() * chars.length) | 0], i * size, drops[i] * size);
+        if (drops[i] * size > h && Math.random() > 0.97) drops[i] = 0;
+        drops[i]++;
+      }
+    }, 50);
+    setTimeout(function () {
+      clearInterval(timer);
+      c.style.transition = 'opacity .6s'; c.style.opacity = '0';
+      setTimeout(function () { c.remove(); }, 700);
+    }, 6000);
+  }
+
+  /* 7. 明暗切换圆形扩散 */
+  function themeRipple() {
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('#color-toggle-btn') : null;
+      if (!btn || !document.body.animate) return;
+      var r = btn.getBoundingClientRect();
+      var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      var d = Math.hypot(Math.max(cx, window.innerWidth - cx), Math.max(cy, window.innerHeight - cy)) * 2;
+      var el = document.createElement('span');
+      el.className = 'theme-ripple';
+      el.style.cssText = 'left:' + cx + 'px;top:' + cy + 'px;width:' + d + 'px;height:' + d + 'px';
+      document.body.appendChild(el);
+      var isDark = document.documentElement.getAttribute('data-user-color-scheme') === 'dark';
+      el.style.background = isDark ? '#0e1620' : '#fdfdfd';
+      el.animate([{ transform: 'translate(-50%,-50%) scale(0)', opacity: .95 }, { transform: 'translate(-50%,-50%) scale(1)', opacity: 0 }], { duration: 620, easing: 'ease-out' })
+        .onfinish = function () { el.remove(); };
+    }, true);
+  }
+
+  /* 8. 开机动画（每个会话一次） */
+  function bootScreen() {
+    if (reduce) return;
+    try { if (sessionStorage.getItem('booted')) return; sessionStorage.setItem('booted', '1'); } catch (err) { return; }
+    var el = document.createElement('div');
+    el.className = 'boot-screen';
+    el.innerHTML = '<pre class="boot-log"></pre>';
+    document.body.appendChild(el);
+    var log = el.querySelector('.boot-log');
+    var lines = ['$ hexo generate', 'INFO  Generated: index.html', 'INFO  Generated: 213 files', '$ npm start', 'ready on https://www.sheffi.top'];
+    var i = 0, j = 0, out = '',
+      timer = setInterval(function () {
+        if (i >= lines.length) { clearInterval(timer); setTimeout(function () { el.classList.add('done'); setTimeout(function () { el.remove(); }, 420); }, 160); return; }
+        out = lines.slice(0, i).join('\n') + (i ? '\n' : '') + lines[i].slice(0, j);
+        log.textContent = out; j++;
+        if (j > lines[i].length) { i++; j = 0; }
+      }, 18);
+  }
+
+  function boot() {
+    bootScreen();
+    reveal();
+    parallax();
+    cursorGlow();
+    codeBlocks();
+    lightbox();
+    konami();
+    themeRipple();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();

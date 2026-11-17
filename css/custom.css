@@ -46,4 +46,42 @@
 
 /* 看板娘定位修正 */
 #live2dcanvas{position:fixed!important;left:auto!important;top:auto!important;right:16px!important;bottom:16px!important;z-index:900!important}
-@media(max-width:767.98px)
+@media(max-width:767.98px){#live2dcanvas{display:none!important}}
+
+/* 滚动渐入 */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* 鼠标光晕 */
+.cursor-glow{position:fixed;left:0;top:0;width:320px;height:320px;border-radius:50%;pointer-events:none;z-index:5;background:radial-gradient(circle,rgba(77,163,255,.16),transparent 62%);filter:blur(6px)}
+@media(hover:none),(max-width:767.98px){.cursor-glow{display:none}}
+
+/* 代码块标题栏 */
+.code-wrap{position:relative;margin:1.1rem 0;border-radius:10px;overflow:hidden;background:#15202b;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.code-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#1b2836}
+.code-bar .dot{width:10px;height:10px;border-radius:50%;background:#ff5f56}
+.code-bar .dot:nth-child(2){background:#ffbd2e}
+.code-bar .dot:nth-child(3){background:#27c93f}
+.code-bar em{margin-left:auto;font-style:normal;font-size:11px;letter-spacing:.5px;color:#7d8fa3;text-transform:uppercase}
+.code-bar .code-copy{margin-left:8px;border:none;cursor:pointer;font-size:11px;padding:2px 8px;border-radius:4px;color:#c8d3df;background:rgba(255,255,255,.08)}
+.code-bar .code-copy:hover{background:rgba(255,255,255,.16)}
+.code-wrap pre{margin:0!important;border-radius:0!important}
+
+/* 图片灯箱 */
+.lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(6,10,16,.9);z-index:3000}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lightbox .lb-close{position:absolute;top:14px;right:22px;border:none;background:none;color:#fff;font-size:32px;line-height:1;cursor:pointer;opacity:.75}
+.lightbox .lb-close:hover{opacity:1}
+
+/* 明暗切换圆形扩散 */
+.theme-ripple{position:fixed;border-radius:50%;pointer-events:none;z-index:2500;transform:translate(-50%,-50%) scale(0)}
+
+/* Konami 矩阵 */
+.matrix-overlay{position:fixed;inset:0;z-index:2600;pointer-events:none;background:#000}
+
+/* 开机动画 */
+.boot-screen{position:fixed;inset:0;z-index:4000;display:flex;align-items:center;justify-content:center;background:#0b1118;transition:opacity .4s ease}
+.boot-screen.done{opacity:0}
+.boot-log{margin:0;min-height:96px;color:#6ee7b7;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace}
