@@ -19,3 +19,31 @@
   .index-card{transition:none}
   .index-card:hover{transform:none}
 }
+
+/* 代码雨 */
+#banner{position:relative;overflow:hidden}
+.code-rain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5;z-index:0}
+#banner .banner-text{position:relative;z-index:2}
+
+/* 季节彩蛋层 */
+.season-layer{position:fixed;inset:0;pointer-events:none;z-index:1200}
+
+/* 阅读进度条 */
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:2000;background:linear-gradient(90deg,#4da3ff,#6ee7b7);transition:width .08s linear}
+
+/* 终端挂件 */
+.term-widget{position:fixed;left:20px;bottom:20px;z-index:1500;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.term-toggle{width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;background:#15202b;color:#6ee7b7;font-size:15px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.25);transition:transform .2s}
+.term-toggle:hover{transform:translateY(-2px)}
+.term-panel{margin-bottom:10px;width:330px;max-width:calc(100vw - 40px);border-radius:10px;overflow:hidden;background:#0e1620;box-shadow:0 12px 32px rgba(0,0,0,.35)}
+.term-bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#182430}
+.term-bar span{width:10px;height:10px;border-radius:50%;background:#ff5f56}
+.term-bar span:nth-child(2){background:#ffbd2e}
+.term-bar span:nth-child(3){background:#27c93f}
+.term-bar em{margin-left:auto;font-style:normal;font-size:11px;color:#7d8fa3}
+.term-body{margin:0;padding:12px;min-height:96px;max-height:220px;overflow:auto;font-size:12px;line-height:1.6;color:#a8ffcd;white-space:pre-wrap}
+@media(max-width:767.98px){.code-rain{display:none}.term-widget{left:12px;bottom:12px}}
+
+/* 看板娘定位修正 */
+#live2dcanvas{position:fixed!important;left:auto!important;top:auto!important;right:16px!important;bottom:16px!important;z-index:900!important}
+@media(max-width:767.98px)
