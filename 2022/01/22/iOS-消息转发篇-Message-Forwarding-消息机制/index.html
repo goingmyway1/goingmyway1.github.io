@@ -1,0 +1,875 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sheffi">
+  <meta name="keywords" content="iOS,Java,Git,移动开发,后端,开发工具">
+  
+    <meta name="description" content="OC的方法与消息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 消息转发篇(Message Forwarding) (消息机制)">
+<meta property="og:url" content="https://www.sheffi.top/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:site_name" content="不靠谱的程序猿">
+<meta property="og:description" content="OC的方法与消息">
+<meta property="og:locale">
+<meta property="og:image" content="https://www.sheffi.top/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/1.webp">
+<meta property="og:image" content="https://www.sheffi.top/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/2.webp">
+<meta property="article:published_time" content="2022-01-22T07:49:40.000Z">
+<meta property="article:modified_time" content="2026-11-16T15:14:11.000Z">
+<meta property="article:author" content="Sheffi">
+<meta property="article:tag" content="iOS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.sheffi.top/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/1.webp">
+  
+  
+  
+  <title>iOS 消息转发篇(Message Forwarding) (消息机制) - 不靠谱的程序猿</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.sheffi.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="不靠谱的程序猿" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>不靠谱的程序猿</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>ホーム</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>アーカイブ</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>カテゴリ</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>タグ</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/photos/" target="_self">
+                <i class="iconfont icon-camera-fill"></i>
+                <span>照片</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>プロフィール</span>
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>ホーム</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>アーカイブ</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>カテゴリ</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>タグ</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/photos/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-camera-fill"></i>
+                  <span>照片</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>プロフィール</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="ライト"
+               data-label-dark="ダーク">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">ダーク</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="iOS 消息转发篇(Message Forwarding) (消息机制)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-01-22 15:49" pubdate>
+          January 22, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.3k 単語
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          61 分
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">iOS 消息转发篇(Message Forwarding) (消息机制)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="OC的方法与消息"><a href="#OC的方法与消息" class="headerlink" title="OC的方法与消息"></a>OC的方法与消息</h2><span id="more"></span>
+
+<ul>
+<li><strong>方法</strong>：与一个类相关的一段实际代码，并给出一个特定的名字。</li>
+<li><strong>消息</strong>：发送给对象的名称和一组参数。示例：向0x12345678对象发送meaning并且没有参数。</li>
+<li><strong>选择器</strong>：表示消息或方法名称的一种特殊方式，表示为类型SEL。选择器本质上就是不透明的字符串，它们被管理，因此可以使用简单的指针相等来比较它们，从而提高速度。（实现可能会有所不同，但这基本上是他们在外部看起来的样子。）例如：@selector(meaning)</li>
+<li><strong>消息发送</strong>：接收信息并查找和执行适当方法的过程。</li>
+</ul>
+<h2 id="方法与消息发送"><a href="#方法与消息发送" class="headerlink" title="方法与消息发送"></a>方法与消息发送</h2><p><strong>消息</strong>在OC中<strong>方法调用</strong>是一个<strong>消息发送</strong>的过程。OC方法最终被生成为C函数，并带有一些额外的参数。这个C函数objc_msgSend就负责<strong>消息发送。</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">OBJC_EXPORT <span class="hljs-type">id</span> _Nullable<br>objc_msgSendSuper(<span class="hljs-keyword">struct</span> objc_super * _Nonnull <span class="hljs-variable language_">super</span>, SEL _Nonnull op, ...)<br>    OBJC_AVAILABLE(<span class="hljs-number">10.0</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">9.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">2.0</span>);<br></code></pre></td></tr></table></figure>
+
+<p>可以看到传入的是一个objc_super结构体,结构如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs objectivec"><span class="hljs-keyword">struct</span> objc_super &#123;<br>    <span class="hljs-comment">/// Specifies an instance of a class.</span><br>    __<span class="hljs-keyword">unsafe_unretained</span> _Nonnull <span class="hljs-type">id</span> receiver;<br><br>    __<span class="hljs-keyword">unsafe_unretained</span> _Nonnull Class super_class;<br>    <span class="hljs-comment">/* super_class is the first class to search */</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>receiver：消息接收者，是当前class<br>super_class ：父类，从父类开始寻找方法，而略过当前类<br>所以 调用[super xxxx] 并不是说父类来调用方法，只是从父类开始寻找方法，然后发送到当前class,最终作用对象,还是当前class 。</p>
+<h2 id="消息发送的主要步骤"><a href="#消息发送的主要步骤" class="headerlink" title="消息发送的主要步骤"></a>消息发送的主要步骤</h2><ol>
+<li><p>先在cache中查找imp,找到了返回imp</p>
+</li>
+<li><p>在当前class的method list中查找有无imp , 在class的方法列表methods中，根据SEL查找对应的imp</p>
+</li>
+<li><p>找到了 ,将imp存储到当前class 的cache中</p>
+</li>
+<li><p>在class的所有super classes中查找imp（先看Super class的cache，再看super class的方法列表）</p>
+</li>
+<li><p>找到了，同3</p>
+</li>
+<li><p>均未找到imp,进入动态方法解析流程resolveMethod</p>
+<img src="/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/1.webp" srcset="/img/loading.gif" lazyload class=""></li>
+</ol>
+<h2 id="消息转发"><a href="#消息转发" class="headerlink" title="消息转发"></a>消息转发</h2><p>没有方法的实现，程序会在运行时挂掉并抛出 unrecognized selector sent to … 的异常。但在异常抛出前，Objective-C 的运行时会给你三次拯救程序的机会：</p>
+<ul>
+<li>Method resolution</li>
+<li>Fast forwarding</li>
+<li>Normal forwarding</li>
+</ul>
+<h4 id="动态方法解析-Method-Resolution"><a href="#动态方法解析-Method-Resolution" class="headerlink" title="动态方法解析: Method Resolution"></a>动态方法解析: Method Resolution</h4><p>首先，Objective-C 运行时会调用以下方法，让你有机会提供一个函数实现。如果你添加了函数并返回 YES， 那运行时系统就会重新启动一次消息发送的过程。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">+ (<span class="hljs-type">BOOL</span>)resolveInstanceMethod:(SEL)sel &#123;&#125; (实例方法)<br>+ (<span class="hljs-type">BOOL</span>)resolveClassMethod:(SEL)sel &#123;&#125;  (类方法)<br></code></pre></td></tr></table></figure>
+
+<p>可以以下实现：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs objectivec"><span class="hljs-type">void</span> eatMethod(<span class="hljs-type">id</span> obj, SEL _cmd)  <br>&#123;<br>    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;eat...&quot;</span>);<br>&#125;<br><br>+ (<span class="hljs-type">BOOL</span>)resolveInstanceMethod:(SEL)aSEL<br>&#123;<br>    <span class="hljs-keyword">if</span>(aSEL == <span class="hljs-keyword">@selector</span>(eat:))&#123;<br>        class_addMethod([<span class="hljs-keyword">self</span> <span class="hljs-keyword">class</span>], aSEL, (IMP)eatMethod, <span class="hljs-string">&quot;v@:&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">YES</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> [<span class="hljs-variable language_">super</span> resolveInstanceMethod];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>我们只需要在 resolveInstanceMethod: 方法中，利用 class_addMethod 方法，将未实现的 eatMethod：绑定到 eatMethod 上就能完成转发，最后返回 YES。</p>
+<p>这里第一字符v代表函数返回类型void，第二个字符@代表self的类型id，第三个字符:代表_cmd的类型SEL。<a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100">官方地址</a></p>
+<img src="/2022/01/22/iOS-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E7%AF%87-Message-Forwarding-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/2.webp" srcset="/img/loading.gif" lazyload class="">
+
+<h4 id="快速转发-Fast-Rorwarding"><a href="#快速转发-Fast-Rorwarding" class="headerlink" title="快速转发: Fast Rorwarding"></a>快速转发: Fast Rorwarding</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">- (<span class="hljs-type">id</span>)forwardingTargetForSelector:(SEL)aSelector &#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>消息转发机制执行前，runtime系统允许我们替换消息的接收者为其他对象。通过上面方法。如果此方法返回的是nil 或者self,则会进入消息转发机制<code>（- (void)forwardInvocation:(NSInvocation *)invocation）</code>，否则将会向返回的对象重新发送消息。</p>
+<p>相关实现</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">- (<span class="hljs-type">id</span>)forwardingTargetForSelector:(SEL)aSelector &#123;<br>    <span class="hljs-keyword">if</span>(aSelector == <span class="hljs-keyword">@selector</span>(eat:))&#123;<br>        <span class="hljs-keyword">return</span> [[CatClass alloc] init];<br>    &#125;<br>    <span class="hljs-keyword">return</span> [<span class="hljs-variable language_">super</span> forwardingTargetForSelector:aSelector];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="完整消息转发-Normal-Forwarding"><a href="#完整消息转发-Normal-Forwarding" class="headerlink" title="完整消息转发: Normal Forwarding"></a>完整消息转发: Normal Forwarding</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">- (<span class="hljs-built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector &#123;&#125;<br>- (<span class="hljs-type">void</span>)forwardInvocation:(<span class="hljs-built_in">NSInvocation</span> *)anInvocation &#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>第一个要求返回一个方法签名，第二个方法转发具体的实现。二者相互依赖，只有返回了正确的方法签名，才会执行第二个方法。</p>
+<p><code>forwardInvocation: </code>方法就是一个不能识别消息的分发中心，将这些不能识别的消息转发给不同的消息对象，或者转发给同一个对象，再或者将消息翻译成另外的消息，亦或者简单的处理掉某些消息，因此没有响应也不会报错。例如：我们可以为了避免直接闪退，可以当消息没法处理时在这个方法中给用户一个提示，也不失为一种友好的用户体验。</p>
+<p>其中，参数<code>invocation</code>是从哪来的？在<code>forwardInvocation:</code>消息发送前，runtime系统会向对象发送<code>methodSignatureForSelector:</code>消息，并取到返回的方法签名用于生成<code>NSInvocation</code>对象。所以重写<code>forwardInvocation:</code>的同时也要重写<code>methodSignatureForSelector:</code>方法，否则会抛出异常。当一个对象由于没有相应的方法实现而无法响应某个消息时，运行时系统将通过<code>forwardInvocation:</code>消息通知该对象。每个对象都继承了<code>forwardInvocation:</code>方法，我们可以将消息转发给其它的对象。</p>
+<p>相关实现：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">- (<span class="hljs-built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector &#123;<br>	<span class="hljs-meta">#<span class="hljs-keyword">pragma</span> clang diagnostic push</span><br>	<span class="hljs-meta">#<span class="hljs-keyword">pragma</span> clang diagnostic ignored <span class="hljs-string">&quot;-Wundeclared-selector&quot;</span></span><br>	<span class="hljs-keyword">if</span> (aSelector == <span class="hljs-keyword">@selector</span>(eat:)) &#123;<br>	<span class="hljs-meta">#<span class="hljs-keyword">pragma</span> clang diagnostic pop</span><br>	<span class="hljs-keyword">return</span> [<span class="hljs-built_in">NSMethodSignature</span>  signatureWithObjCTypes:<span class="hljs-string">&quot;v@:@&quot;</span>];<br>&#125;<br>	<span class="hljs-keyword">return</span> [<span class="hljs-variable language_">super</span> methodSignatureForSelector:aSelector];<br>&#125;<br><br>- (<span class="hljs-type">void</span>)forwardInvocation:(<span class="hljs-built_in">NSInvocation</span> *)anInvocation &#123;<br>	Person *person = [Person new];<br>	Animal *animal = [Animal new];<br>	<span class="hljs-keyword">if</span> ([person respondsToSelector:anInvocation.selector]) &#123;<br>		[anInvocation invokeWithTarget:person];<br>	&#125;<br>	<span class="hljs-keyword">if</span> ([animal respondsToSelector:anInvocation.selector]) &#123;<br>		[anInvocation invokeWithTarget:animal];<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果三次都没有处理，就会抛出异常</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">unrecognized selector sent to instance <span class="hljs-number">0x6d9f817072b1</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="模拟多继承"><a href="#模拟多继承" class="headerlink" title="模拟多继承"></a>模拟多继承</h2><p>转发和继承相似，可用于为OC编程添加一些多继承的效果，一个对象把消息转发出去，就好像他把另一个对象中放法接过来或者“继承”一样。消息转发弥补了objc不支持多继承的性质，也避免了因为多继承导致单个类变得臃肿复杂。</p>
+<p>相关代码实现：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><code class="hljs objectivec"><span class="hljs-meta">#import <span class="hljs-string">&lt;Foundation/Foundation.h&gt;</span></span><br><br><span class="hljs-built_in">NS_ASSUME_NONNULL_BEGIN</span><br><br><span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">GDTMultipleDelegateProxy</span> : <span class="hljs-title">NSObject</span></span><br><br>+ (<span class="hljs-keyword">instancetype</span>)share;<br><span class="hljs-comment">/// 把目标类添加到管理类里面</span><br>- (<span class="hljs-type">void</span>)addTarget:(<span class="hljs-type">id</span>)target protocol:(<span class="hljs-type">id</span>)protocol;<br><span class="hljs-comment">/// 移除某个目标类</span><br>- (<span class="hljs-type">void</span>)removeProtocol:(<span class="hljs-type">id</span>)protocol;<br><span class="hljs-comment">/// 移除所有目标类</span><br>- (<span class="hljs-type">void</span>)removeAll;<br><br><span class="hljs-keyword">@end</span><br><br><span class="hljs-built_in">NS_ASSUME_NONNULL_END</span><br><span class="hljs-meta">#import <span class="hljs-string">&quot;GDTMultipleDelegateProxy.h&quot;</span></span><br><span class="hljs-meta">#import <span class="hljs-string">&lt;objc/runtime.h&gt;</span></span><br><span class="hljs-meta">#import <span class="hljs-string">&lt;objc/message.h&gt;</span></span><br><br><span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">GDTMultipleDelegateProxy</span> ()</span><br><br><span class="hljs-keyword">@property</span> (<span class="hljs-keyword">nonatomic</span>, <span class="hljs-keyword">strong</span>) <span class="hljs-built_in">NSMutableDictionary</span> *refTargets;<br><br><span class="hljs-keyword">@end</span><br><br><span class="hljs-class"><span class="hljs-keyword">@implementation</span> <span class="hljs-title">GDTMultipleDelegateProxy</span></span><br><br><span class="hljs-keyword">static</span> GDTMultipleDelegateProxy *manager = <span class="hljs-literal">nil</span>;<br><br>+ (<span class="hljs-keyword">instancetype</span>)share &#123;<br>    <span class="hljs-keyword">if</span> (!manager) &#123;<br>        manager = [[GDTMultipleDelegateProxy alloc] init];<br>    &#125;<br>    <span class="hljs-keyword">return</span> manager;<br>&#125;<br><br>- (<span class="hljs-type">void</span>)addTarget:(<span class="hljs-type">id</span>)target protocol:(<span class="hljs-type">id</span>)protocol &#123;<br>    <span class="hljs-keyword">if</span> (![<span class="hljs-keyword">self</span>.refTargets.allKeys containsObject:protocol]) &#123;<br>        <span class="hljs-built_in">NSPointerArray</span> *targets = [<span class="hljs-built_in">NSPointerArray</span> weakObjectsPointerArray];<br>        [targets addPointer:(__bridge <span class="hljs-type">void</span> * _Nullable)(target)];<br>        [<span class="hljs-keyword">self</span>.refTargets setObject:targets forKey:protocol];<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">NSPointerArray</span> *targets = [<span class="hljs-keyword">self</span>.refTargets objectForKey:protocol];<br>        <span class="hljs-keyword">if</span> ([targets.allObjects containsObject:target]) &#123;<span class="hljs-keyword">return</span>;&#125;<br>        [targets addPointer:(__bridge <span class="hljs-type">void</span> * _Nullable)(target)];<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">/// 方法签名</span><br>- (<span class="hljs-built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector &#123;<br>    <span class="hljs-built_in">NSMethodSignature</span> *sig = [<span class="hljs-variable language_">super</span> methodSignatureForSelector:aSelector];<br>    <span class="hljs-keyword">if</span> (!sig) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">id</span> key <span class="hljs-keyword">in</span> <span class="hljs-keyword">self</span>.refTargets.allKeys) &#123;<br>            <span class="hljs-built_in">NSPointerArray</span> *targets = [<span class="hljs-keyword">self</span>.refTargets objectForKey:key];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">id</span> obj <span class="hljs-keyword">in</span> targets) &#123;<br>                <span class="hljs-keyword">if</span> ((sig = [obj methodSignatureForSelector:aSelector])) &#123;<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> sig;<br>&#125;<br><br><span class="hljs-comment">/// 消息转发</span><br>- (<span class="hljs-type">void</span>)forwardInvocation:(<span class="hljs-built_in">NSInvocation</span> *)anInvocation &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">NSString</span> *key <span class="hljs-keyword">in</span> <span class="hljs-keyword">self</span>.refTargets.allKeys) &#123;<br>        <span class="hljs-built_in">NSPointerArray</span> *targets = [<span class="hljs-keyword">self</span>.refTargets objectForKey:key];<br>        <span class="hljs-keyword">const</span> <span class="hljs-type">char</span> *name = [key UTF8String];<br>        Protocol *protocol = objc_getProtocol(name);<br>        <span class="hljs-built_in">NSAssert</span>(protocol!=<span class="hljs-literal">nil</span>, <span class="hljs-string">@&quot;不存在的协议&quot;</span>);<br>        <span class="hljs-keyword">struct</span> objc_method_description protocol_method_description = protocol_getMethodDescription(protocol, anInvocation.selector, <span class="hljs-literal">NO</span>, <span class="hljs-literal">YES</span>);<br>        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;===%@==%s=&quot;</span>,<span class="hljs-built_in">NSStringFromSelector</span>(protocol_method_description.name),protocol_method_description.types);<br>        <span class="hljs-keyword">if</span> (protocol_method_description.name != <span class="hljs-literal">nil</span>) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">id</span> obj <span class="hljs-keyword">in</span> targets) &#123;<br>                <span class="hljs-keyword">if</span> ([obj respondsToSelector:anInvocation.selector]) &#123;<br>                    [anInvocation invokeWithTarget:obj];<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br>- (<span class="hljs-type">void</span>)removeProtocol:(<span class="hljs-type">id</span>)protocol &#123;<br>    <span class="hljs-keyword">if</span> ([<span class="hljs-keyword">self</span>.refTargets.allKeys containsObject:protocol]) &#123;<br>        [_refTargets removeObjectForKey:protocol];<br>    &#125;<br>&#125;<br><br>- (<span class="hljs-type">void</span>)removeAll &#123;<br>    [<span class="hljs-keyword">self</span>.refTargets removeAllObjects];<br>&#125;<br><br><span class="hljs-comment">/// 判断目标类是否实现该协议</span><br>- (<span class="hljs-type">BOOL</span>)respondsToSelector:(SEL)aSelector &#123;<br>    <span class="hljs-keyword">if</span> ([<span class="hljs-variable language_">super</span> respondsToSelector:aSelector]) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">YES</span>;<br>    &#125;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">id</span> key <span class="hljs-keyword">in</span> <span class="hljs-keyword">self</span>.refTargets.allKeys) &#123;<br>        <span class="hljs-built_in">NSPointerArray</span> *targets = [<span class="hljs-keyword">self</span>.refTargets objectForKey:key];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">id</span> obj <span class="hljs-keyword">in</span> targets) &#123;<br>            <span class="hljs-keyword">if</span> ([obj respondsToSelector:aSelector]) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">YES</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">NO</span>;<br>&#125;<br><br><br>- (<span class="hljs-built_in">NSMutableDictionary</span> *)refTargets &#123;<br>    <span class="hljs-keyword">if</span> (!_refTargets) &#123;<br>        _refTargets = [<span class="hljs-built_in">NSMutableDictionary</span> dictionary];<br>    &#125;<br>    <span class="hljs-keyword">return</span> _refTargets;<br>&#125;<br><br>- (Class)getMeterClassObjc:(<span class="hljs-type">id</span>)objc &#123;<br>    <span class="hljs-keyword">return</span> object_getClass(objc);<br>&#125;<br><br><span class="hljs-comment">//给objc的deallocz转发一个新方法</span><br>- (<span class="hljs-type">void</span>)cy_dealloc&#123;<br>    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;=====%s====&quot;</span>,__func__);<br>&#125;<br><br><span class="hljs-keyword">static</span> <span class="hljs-type">void</span> cy_dealloc(<span class="hljs-type">id</span> <span class="hljs-keyword">self</span> ,SEL _cmd)&#123;<br>    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;====%s=%@=&quot;</span>,__func__,<span class="hljs-keyword">self</span>);<br>&#125;<br><br><span class="hljs-keyword">@end</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/iOS/" class="category-chain-item">iOS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/iOS/" class="print-no-link">#iOS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>iOS 消息转发篇(Message Forwarding) (消息机制)</div>
+      <div>https://www.sheffi.top/2022/01/22/iOS-消息转发篇-Message-Forwarding-消息机制/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>著者</div>
+          <div>Sheffi</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>作成日</div>
+          <div>January 22, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>著作権</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/02/09/iOS-Extension%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/" title="iOS Extension断点调试">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">iOS Extension断点调试</span>
+                        <span class="visible-mobile">前の記事</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/15/iOS-15-%E9%80%82%E9%85%8D%E6%89%8B%E5%86%8C/" title="iOS 15 适配手册">
+                        <span class="hidden-mobile">iOS 15 适配手册</span>
+                        <span class="visible-mobile">次の記事</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>見出し</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">ブログは JavaScript を有効にすると最適に機能します</div>
+  </noscript>
+</body>
+</html>
